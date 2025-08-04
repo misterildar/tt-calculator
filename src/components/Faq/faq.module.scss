@@ -8,8 +8,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  overflow: hidden;
 }
 
 .head_title {
@@ -23,7 +21,7 @@
   flex-direction: column;
   gap: 20px;
   width: 100%;
-  padding: 60px 64px;
+  padding: 60px 0;
 }
 
 .faq {

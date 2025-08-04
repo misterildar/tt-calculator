@@ -13,7 +13,7 @@ export function Faq() {
   };
 
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id='faq'>
       <div className={styles.container}>
         <h3 className={styles.head_title}>FAQ</h3>
         <div className={styles.list}>
