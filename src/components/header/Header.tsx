@@ -4,13 +4,13 @@ import logoTT from '../../../public/images/logo_TT.png';
 import styles from './header.module.scss';
 import Image from 'next/image';
 
-const Header = () => {
+export const Header = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <section className={styles.header}>
+    <header className={styles.header}>
       <div className={styles.container}>
         <Image className={styles.logo} alt='logo' width={344} height={73} src={logoTT} />
         <div className={styles.links}>
@@ -20,7 +20,7 @@ const Header = () => {
           <Link className={styles.link} href='#how-it-works'>
             How It Works
           </Link>
-          <Link className={styles.link} href='#calculator'>
+          <Link className={styles.link} href='#calculate'>
             Calculator
           </Link>
           <Link className={styles.link} href='#faq'>
@@ -34,8 +34,6 @@ const Header = () => {
           </Link>
         </div>
       </div>
-    </section>
+    </header>
   );
 };
-
-export default Header;

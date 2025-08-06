@@ -1,20 +1,20 @@
 import { Control, FieldErrors, FieldValues, Path } from 'react-hook-form';
 
-export interface CalculatorFormData {
+export interface CalculateFormData {
   currentAge: number | '';
   gender: 'male' | 'female' | '';
   initialInvestment: number;
   contributionYears: number;
 }
 
-export interface CalculatorFormProps {
-  onSubmit: (data: CalculatorFormData) => void;
+export interface CalculateFormProps {
+  onSubmit: (data: CalculateFormData) => void;
 }
 
 export interface FormFieldsProps {
-  control: Control<CalculatorFormData>;
-  errors: FieldErrors<CalculatorFormData>;
-  watchedValues: CalculatorFormData;
+  control: Control<CalculateFormData>;
+  errors: FieldErrors<CalculateFormData>;
+  watchedValues: CalculateFormData;
 }
 
 type Option = { readonly label: string; readonly value: string };
@@ -29,7 +29,7 @@ export type DropdownProps<T extends FieldValues = FieldValues> = {
   placeholder?: string;
 };
 
-export interface CalculatorContentProps {
+export interface CalculateContentProps {
   isLoading: boolean;
   chartData: InvestmentScenario[];
 }

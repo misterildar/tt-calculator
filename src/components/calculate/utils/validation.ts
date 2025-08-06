@@ -1,8 +1,8 @@
-import { CalculatorFormData } from '../types';
-import { CALCULATOR_CONSTANTS, CALCULATOR_TEXTS } from './constants';
+import { CalculateFormData } from '../types';
+import { CALCULATE_CONSTANTS, CALCULATE_TEXTS } from './constants';
 
-const { VALIDATION } = CALCULATOR_CONSTANTS;
-const { ERRORS } = CALCULATOR_TEXTS;
+const { VALIDATION } = CALCULATE_CONSTANTS;
+const { ERRORS } = CALCULATE_TEXTS;
 
 export const validationRules = {
   currentAge: {
@@ -66,7 +66,7 @@ export const fieldHandlers = {
   },
 } as const;
 
-export const isSubmitDisabled = (values: CalculatorFormData): boolean => {
+export const isSubmitDisabled = (values: CalculateFormData): boolean => {
   const { gender, currentAge, initialInvestment, contributionYears } = values;
 
   return (

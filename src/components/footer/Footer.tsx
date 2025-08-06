@@ -20,23 +20,11 @@ export const Footer = () => {
             <Link href='mailto:TimeTrust@gmail.com'>TimeTrust@gmail.com</Link>
             <Link href='tel:+1 415-886-7704'>+1 415-886-7704</Link>
             <div className={styles.socialMedia}>
-              <Link href='https://www.linkedin.com/company/timetrust'>
-                <Image
-                  src={'images/Logo_LinkedIn.svg'}
-                  alt={'LinkedIn'}
-                  width={24}
-                  height={24}
-                  className={styles.socialLogo}
-                />
+              <Link href='https://www.linkedin.com/company/timetrust' className={styles.socialLink}>
+                <Image src={'images/Logo_LinkedIn.svg'} alt={'LinkedIn'} fill sizes='24px' />
               </Link>
-              <Link href='https://x.com/timetrustinc'>
-                <Image
-                  src={'images/Logo_X.svg'}
-                  alt={'X'}
-                  width={24}
-                  height={24}
-                  className={styles.socialLogo}
-                />
+              <Link href='https://x.com/timetrustinc' className={styles.socialLink}>
+                <Image src={'images/Logo_X.svg'} alt={'X'} fill sizes='24px' />
               </Link>
             </div>
           </div>

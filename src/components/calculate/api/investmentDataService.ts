@@ -1,6 +1,6 @@
-import { CalculatorFormData, InvestmentScenario } from '../types';
+import { CalculateFormData, InvestmentScenario } from '../types';
 
-export const getInvestmentData = (formData: CalculatorFormData): InvestmentScenario[] => {
+export const getInvestmentData = (formData: CalculateFormData): InvestmentScenario[] => {
   const { initialInvestment, contributionYears } = formData;
 
   const startYear = new Date().getFullYear();

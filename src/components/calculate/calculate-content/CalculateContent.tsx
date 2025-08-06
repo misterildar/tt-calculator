@@ -1,11 +1,11 @@
-import { CalculatorIcon, LoadingSpinner, Button } from '@/ui';
+import { CalculateIcon, LoadingSpinner, Button } from '@/ui';
 import { InvestmentChart } from '../investment-chart';
-import { CALCULATOR_TEXTS } from '../utils/constants';
+import { CALCULATE_TEXTS } from '../utils/constants';
 
-import { CalculatorContentProps } from '../types';
-import styles from './CalculatorContent.module.scss';
+import { CalculateContentProps } from '../types';
+import styles from './CalculateContent.module.scss';
 
-export const CalculatorContent = ({ isLoading, chartData }: CalculatorContentProps) => {
+export const CalculateContent = ({ isLoading, chartData }: CalculateContentProps) => {
   if (isLoading) {
     return <LoadingSpinner />;
   }
@@ -21,8 +21,8 @@ export const CalculatorContent = ({ isLoading, chartData }: CalculatorContentPro
 
   return (
     <div className={styles.initialState}>
-      <CalculatorIcon />
-      <p className={styles.description}>{CALCULATOR_TEXTS.ICON.iconText}</p>
+      <CalculateIcon />
+      <p className={styles.description}>{CALCULATE_TEXTS.ICON.iconText}</p>
     </div>
   );
 };

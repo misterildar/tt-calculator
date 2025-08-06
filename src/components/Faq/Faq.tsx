@@ -4,6 +4,8 @@ import { useState } from 'react';
 import styles from './faq.module.scss';
 import { FaqItem } from './FaqItem';
 import { faqData } from './mock.data';
+import { Button } from '@/ui';
+import Link from 'next/link';
 
 export function Faq() {
   const [expanded, setExpanded] = useState<number | null>(null);
@@ -27,6 +29,10 @@ export function Faq() {
             />
           ))}
         </div>
+        <h3 className={styles.text}>Visualize the results with calculator!</h3>
+        <Link href='#calculate'>
+          <Button text='Calculate your future Now' width={530} />
+        </Link>
       </div>
     </section>
   );

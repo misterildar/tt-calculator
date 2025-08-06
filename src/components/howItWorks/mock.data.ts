@@ -9,6 +9,6 @@ export const HowData: HowDataType[] = [
   {
     title: 'Payment of investment value',
     description:
-      ' At the chosen distribution age, clients receive their investment value plus an allocated portion from this reserve.',
+      'At the chosen distribution age, clients receive their investment value plus an allocated portion from this reserve.',
   },
 ];

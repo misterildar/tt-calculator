@@ -1,29 +1,26 @@
 import { Slider } from '@/components/slider/Slider';
-import { Calculator } from '@/components/calculator/Calculator';
-import { Footer } from '@/components/footer/Footer';
+import { Calculate } from '@/components/calculate/Calculate';
+
 import { Poster } from '@/components/poster/Poster';
 import { AboutUs } from '@/components/aboutUs/AboutUs';
 
 import styles from './page.module.scss';
 import { Faq } from '@/components/Faq/Faq';
-import Header from '@/components/header/Header';
 import KeyAdvantages from '@/components/keyAdvantagesBlock/KeyAdvantages';
 import WhyChooseTT from '@/components/whyChooseTTBlock/WhyChooseTT';
 import { HowItWorks } from '@/components/howItWorks/HowItWorks';
 
 export default function HomePage() {
   return (
-    <main className={styles.main} id='top'>
-      <Header />
+    <div className={styles.main} id='top'>
       <Poster />
       <HowItWorks />
-      <Calculator />
+      <Calculate />
       <KeyAdvantages />
       <WhyChooseTT />
       <Faq />
       <AboutUs />
       <Slider />
-      <Footer />
-    </main>
+    </div>
   );
 }

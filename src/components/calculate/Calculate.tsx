@@ -3,19 +3,19 @@
 import { useState } from 'react';
 
 import { Title } from '@/ui';
-import { CalculatorForm } from './calculator-form';
-import { CalculatorContent } from './calculator-content';
+import { CalculateForm } from './calculate-form';
+import { CalculateContent } from './calculate-content';
 import { getInvestmentData } from './api/investmentDataService';
 
-import { CalculatorFormData, InvestmentScenario } from './types';
-import styles from './Calculator.module.scss';
+import { CalculateFormData, InvestmentScenario } from './types';
+import styles from './Calculate.module.scss';
 
-export const Calculator = () => {
+export const Calculate = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const [chartData, setChartData] = useState<InvestmentScenario[]>([]);
 
-  const handleFormSubmit = async (data: CalculatorFormData) => {
+  const handleFormSubmit = async (data: CalculateFormData) => {
     setIsLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 2000));
     const result = getInvestmentData(data);
@@ -24,14 +24,14 @@ export const Calculator = () => {
   };
 
   return (
-    <section id='calculator' className={styles.section}>
+    <section id='calculate' className={styles.section}>
       <Title text='calculate' className={styles.title} />
       <div className={styles.separator}>
-        <div className={styles.calculator}>
-          <CalculatorForm onSubmit={handleFormSubmit} />
+        <div className={styles.calculate}>
+          <CalculateForm onSubmit={handleFormSubmit} />
         </div>
         <div className={styles.container}>
-          <CalculatorContent isLoading={isLoading} chartData={chartData} />
+          <CalculateContent isLoading={isLoading} chartData={chartData} />
         </div>
       </div>
     </section>

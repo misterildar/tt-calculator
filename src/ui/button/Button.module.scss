@@ -14,6 +14,7 @@
   text-decoration: none;
   outline: none;
   padding: 16px;
+  flex-wrap: nowrap;
 
   &:hover:not(:disabled) {
     font-size: 40px;
@@ -31,7 +32,7 @@
   border: 2px solid $blue;
 }
 
-.calculator {
+.calculate {
   background: $indigo-color;
   color: $white;
 }

@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 
 import { isSubmitDisabled } from '../utils/validation';
-import { CALCULATOR_CONSTANTS, CALCULATOR_TEXTS } from '../utils/constants';
+import { CALCULATE_CONSTANTS, CALCULATE_TEXTS } from '../utils/constants';
 import { useFocusFirstInvalidField } from '../utils/hooks/useFocusFirstInvalidField';
 import {
   AgeField,
@@ -12,10 +12,10 @@ import {
 } from '../form-fields';
 import { Button } from '@/ui';
 
-import { CalculatorFormProps, CalculatorFormData } from '../types';
-import styles from './CalculatorForm.module.scss';
+import { CalculateFormProps, CalculateFormData } from '../types';
+import styles from './CalculateForm.module.scss';
 
-export const CalculatorForm = ({ onSubmit }: CalculatorFormProps) => {
+export const CalculateForm = ({ onSubmit }: CalculateFormProps) => {
   const {
     reset,
     watch,
@@ -23,8 +23,8 @@ export const CalculatorForm = ({ onSubmit }: CalculatorFormProps) => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<CalculatorFormData>({
-    defaultValues: CALCULATOR_CONSTANTS.DEFAULT_VALUES,
+  } = useForm<CalculateFormData>({
+    defaultValues: CALCULATE_CONSTANTS.DEFAULT_VALUES,
     mode: 'all',
   });
 
@@ -41,9 +41,9 @@ export const CalculatorForm = ({ onSubmit }: CalculatorFormProps) => {
     }
   };
 
-  const handleFormSubmit = (data: CalculatorFormData) => {
+  const handleFormSubmit = (data: CalculateFormData) => {
     onSubmit(data);
-    reset(CALCULATOR_CONSTANTS.DEFAULT_VALUES);
+    reset(CALCULATE_CONSTANTS.DEFAULT_VALUES);
   };
 
   return (
@@ -55,9 +55,9 @@ export const CalculatorForm = ({ onSubmit }: CalculatorFormProps) => {
       <DisclaimerField />
       <Button
         type='submit'
-        variant='calculator'
+        variant='calculate'
         onClick={handleButtonClick}
-        text={CALCULATOR_TEXTS.BUTTON.submit}
+        text={CALCULATE_TEXTS.BUTTON.submit}
       />
     </form>
   );

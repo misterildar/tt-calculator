@@ -2,8 +2,8 @@ import { Controller } from 'react-hook-form';
 import { forwardRef } from 'react';
 
 import { Dropdown } from './DropDown';
-import { FormFieldsProps, CalculatorFormData } from '../types';
-import { CALCULATOR_CONSTANTS, CALCULATOR_TEXTS } from '../utils/constants';
+import { FormFieldsProps, CalculateFormData } from '../types';
+import { CALCULATE_CONSTANTS, CALCULATE_TEXTS } from '../utils/constants';
 import { validationRules, fieldHandlers } from '../utils/validation';
 
 import styles from './FormFields.module.scss';
@@ -12,7 +12,7 @@ export const AgeField = forwardRef<HTMLInputElement, Pick<FormFieldsProps, 'cont
   ({ control, errors }, ref) => (
     <div className={styles.field}>
       <label className={styles.label}>
-        {CALCULATOR_TEXTS.LABELS.currentAge} <span className={styles.required}>*</span>
+        {CALCULATE_TEXTS.LABELS.currentAge} <span className={styles.required}>*</span>
       </label>
       <Controller
         name='currentAge'
@@ -23,7 +23,7 @@ export const AgeField = forwardRef<HTMLInputElement, Pick<FormFieldsProps, 'cont
             ref={ref}
             type='text'
             className={`${styles.input} ${errors.currentAge ? styles.inputError : ''}`}
-            placeholder={CALCULATOR_TEXTS.PLACEHOLDERS.age}
+            placeholder={CALCULATE_TEXTS.PLACEHOLDERS.age}
             value={field.value ? field.value.toString() : ''}
             onChange={(e) => fieldHandlers.age(e.target.value, field.onChange)}
           />
@@ -39,12 +39,12 @@ AgeField.displayName = 'AgeField';
 export const GenderField = forwardRef<HTMLDivElement, Pick<FormFieldsProps, 'control' | 'errors'>>(
   ({ control, errors }, ref) => (
     <div ref={ref}>
-      <Dropdown<CalculatorFormData>
+      <Dropdown<CalculateFormData>
         control={control}
         errors={errors}
         name='gender'
-        label={CALCULATOR_TEXTS.LABELS.gender}
-        options={CALCULATOR_CONSTANTS.GENDER_OPTIONS}
+        label={CALCULATE_TEXTS.LABELS.gender}
+        options={CALCULATE_CONSTANTS.GENDER_OPTIONS}
         rules={validationRules.gender}
         placeholder='Choose your gender'
       />
@@ -59,7 +59,7 @@ export const InvestmentField = forwardRef<
   Pick<FormFieldsProps, 'control' | 'errors'>
 >(({ control, errors }, ref) => (
   <div className={styles.field}>
-    <label className={styles.label}>{CALCULATOR_TEXTS.LABELS.initialInvestment}</label>
+    <label className={styles.label}>{CALCULATE_TEXTS.LABELS.initialInvestment}</label>
     <Controller
       name='initialInvestment'
       control={control}
@@ -68,7 +68,7 @@ export const InvestmentField = forwardRef<
         <input
           ref={ref}
           type='text'
-          placeholder={CALCULATOR_TEXTS.PLACEHOLDERS.investment}
+          placeholder={CALCULATE_TEXTS.PLACEHOLDERS.investment}
           className={`${styles.input} ${errors.initialInvestment ? styles.inputError : ''}`}
           value={field.value ? field.value.toString() : ''}
           onChange={(e) => fieldHandlers.investment(e.target.value, field.onChange)}
@@ -91,11 +91,11 @@ export const ContributionYearsField = ({
   <div className={styles.field}>
     <div className={styles.sliderHeader}>
       <span className={styles.sliderLabel}>
-        {CALCULATOR_TEXTS.LABELS.contributionYears} <span className={styles.required}>*</span>
+        {CALCULATE_TEXTS.LABELS.contributionYears} <span className={styles.required}>*</span>
       </span>
       <span className={styles.sliderLabel}>
         {watchedValues.contributionYears || ''}
-        {CALCULATOR_TEXTS.HINTS.yearsLabel}
+        {CALCULATE_TEXTS.HINTS.yearsLabel}
       </span>
     </div>
     <div className={styles.sliderContainer}>
@@ -107,16 +107,16 @@ export const ContributionYearsField = ({
           <input
             {...field}
             type='range'
-            min={CALCULATOR_CONSTANTS.SLIDER.MIN}
-            max={CALCULATOR_CONSTANTS.SLIDER.MAX}
-            step={CALCULATOR_CONSTANTS.SLIDER.STEP}
+            min={CALCULATE_CONSTANTS.SLIDER.MIN}
+            max={CALCULATE_CONSTANTS.SLIDER.MAX}
+            step={CALCULATE_CONSTANTS.SLIDER.STEP}
             className={styles.slider}
             onChange={(e) => field.onChange(parseInt(e.target.value))}
           />
         )}
       />
       <div className={styles.sliderLabels}>
-        {CALCULATOR_CONSTANTS.SLIDER.LABELS.map((label) => (
+        {CALCULATE_CONSTANTS.SLIDER.LABELS.map((label) => (
           <span key={label}>{label}</span>
         ))}
       </div>
@@ -131,6 +131,6 @@ ContributionYearsField.displayName = 'ContributionYearsField';
 
 export const DisclaimerField = () => (
   <div className={styles.disclaimer}>
-    <strong>Disclaimer:</strong> {CALCULATOR_TEXTS.DISCLAIMER}
+    <strong>Disclaimer:</strong> {CALCULATE_TEXTS.DISCLAIMER}
   </div>
 );

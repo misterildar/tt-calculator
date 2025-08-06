@@ -2,6 +2,7 @@
   max-width: 1600px;
   width: 100%;
   font-family: 'Nunito', sans-serif;
+  margin-bottom: 100px;
 }
 
 .container {
@@ -82,4 +83,9 @@
 
 .arrow.open {
   transform: rotate(180deg);
+}
+
+.text {
+  @include text($size: 32px, $weight: 600, $lineHeight: 46px);
+  margin-bottom: 28px;
 }

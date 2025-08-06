@@ -1,4 +1,4 @@
-export const CALCULATOR_CONSTANTS = {
+export const CALCULATE_CONSTANTS = {
   DEFAULT_VALUES: {
     currentAge: '' as const,
     gender: '' as const,
@@ -27,7 +27,7 @@ export const CALCULATOR_CONSTANTS = {
   ],
 } as const;
 
-export const CALCULATOR_TEXTS = {
+export const CALCULATE_TEXTS = {
   ICON: {
     iconText:
       'Click "Calculate my profit" to calculate your retirement potential and display information with calculations',
@@ -66,7 +66,7 @@ export const CALCULATOR_TEXTS = {
     submit: 'Calculate my profit',
   },
 
-  DISCLAIMER: `These results are simulated for illustrative purposes only. Actual returns may vary based on market conditions, fees, and other factors. This calculator doesn’t guarantee future performance.`,
+  DISCLAIMER: `These results are simulated for illustrative purposes only. Actual returns may based on market conditions, fees, and other factors. This calculator is not a guarantee of future performance.`,
 
   RESULTS: {
     title: 'Your Investment Results',

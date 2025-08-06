@@ -1,4 +1,4 @@
-export const CalculatorIcon = () => {
+export const CalculateIcon = () => {
   return (
     <svg
       width='100'

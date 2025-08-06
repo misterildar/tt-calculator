@@ -1,8 +1,15 @@
 .section {
   max-width: 1600px;
   width: 100%;
+  padding: 60px 0 128px;
+}
+
+.separator {
   position: relative;
-  padding: 60px 0;
+}
+
+.wrapper {
+  @include columnCenter();
 }
 
 .container {
@@ -105,4 +112,9 @@
 .prevButton:disabled:hover,
 .nextButton:disabled:hover {
   transform: translateY(-50%);
+}
+
+.text {
+  @include text($size: 32px, $weight: 600, $lineHeight: 46px);
+  margin: 60px 0 28px;
 }

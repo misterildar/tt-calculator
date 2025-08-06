@@ -14,9 +14,9 @@ export const Poster = () => {
             <Link href=''>{MAIN_TEXT.link}</Link>
           </p>
           <div className={styles.buttons}>
-            <Button text='Calculate' width={210}>
-              <Link href='#calculate'></Link>
-            </Button>
+            <Link href='#calculate'>
+              <Button text='Calculate' width={210} />
+            </Link>
             <Button variant='transparent' text='Request expert advice' width={450} />
           </div>
         </div>

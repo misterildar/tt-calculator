@@ -11,7 +11,7 @@ import { Title } from '@/ui';
 const KeyAdvantages = () => {
   return (
     <section className={styles.keyAdvantages}>
-      <Title text='KEY ADVANTAGES OF TIMETRUST' />
+      <Title text='Key advantages of TimeTrust' />
       <div className={styles.top_side}>
         <div className={styles.left_side}>
           {keyAdvantagesLeftBlock.map((item) => (

@@ -1,27 +1,3 @@
-@font-face {
-  font-display: swap;
-  font-family: 'Nunito Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/nunito-sans-v18-latin-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/nunito-v31-latin-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 600;
-  src: url('/fonts/nunito-v31-latin-600.woff2') format('woff2');
-}
-
 $blue: #04006f;
 $light-purple: #eeedff;
 
@@ -44,11 +20,11 @@ $white: #ffffff;
 $red: #e74c3c;
 
 @mixin text($size: 24px, $weight: 700, $color: $black, $lineHeight: 32px) {
-  font-family: 'Nunito', sans-serif;
+  font-family: var(--font-nunito), sans-serif;
   font-size: $size;
   font-weight: $weight;
   color: $color;
-  line-height: lineHeight;
+  line-height: $lineHeight;
 }
 
 @mixin columnCenter() {
@@ -60,4 +36,12 @@ $red: #e74c3c;
 
 @mixin boxShadow() {
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.font-nunito {
+  font-family: var(--font-nunito), sans-serif;
+}
+
+.font-nunito-sans {
+  font-family: var(--font-nunito-sans), sans-serif;
 }
