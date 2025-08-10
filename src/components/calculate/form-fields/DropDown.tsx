@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import { useState, useRef } from 'react';
 import { Controller, FieldValues } from 'react-hook-form';
 import { Arrow } from '@/ui';
+=======
+import React, { useState, useRef } from 'react';
+import { Controller, FieldValues } from 'react-hook-form';
+import { SelectArrow } from '@/ui';
+>>>>>>> 6864fea0b54400a73da540e078a802c044e07b93
 import { useClickOutside } from '@/hooks';
 
 import { DropdownProps } from '../types';
@@ -50,7 +56,11 @@ export const Dropdown = <T extends FieldValues = FieldValues>({
                 >
                   {selectedOption?.label || placeholder}
                 </span>
+<<<<<<< HEAD
                 <Arrow isOpen={isOpen} />
+=======
+                <SelectArrow isOpen={isOpen} />
+>>>>>>> 6864fea0b54400a73da540e078a802c044e07b93
               </button>
 
               {isOpen && (

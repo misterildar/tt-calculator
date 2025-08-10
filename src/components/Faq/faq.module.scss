@@ -2,13 +2,26 @@
   max-width: 1600px;
   width: 100%;
   font-family: 'Nunito', sans-serif;
+<<<<<<< HEAD
   margin-bottom: 64px;
+=======
+  margin-bottom: 100px;
+>>>>>>> 6864fea0b54400a73da540e078a802c044e07b93
 }
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+<<<<<<< HEAD
+=======
+}
+
+.head_title {
+  font-size: 48px;
+  line-height: 58px;
+  font-weight: 600;
+>>>>>>> 6864fea0b54400a73da540e078a802c044e07b93
 }
 
 .list {
@@ -16,7 +29,11 @@
   flex-direction: column;
   gap: 20px;
   width: 100%;
+<<<<<<< HEAD
   padding-bottom: 60px;
+=======
+  padding: 60px 0;
+>>>>>>> 6864fea0b54400a73da540e078a802c044e07b93
 }
 
 .faq {

@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { Button, Title } from '@/ui';
 import { FaqItem } from './FaqItem';
 import { faqData } from './mock.data';
+import { Button } from '@/ui';
+import Link from 'next/link';
 
 import styles from './faq.module.scss';
 
@@ -32,7 +34,11 @@ export function Faq() {
         </div>
         <h3 className={styles.text}>Visualize the results with calculator!</h3>
         <Link href='#calculate'>
+<<<<<<< HEAD
           <Button text='Calculate your future Now' width={448} />
+=======
+          <Button text='Calculate your future Now' width={530} />
+>>>>>>> 6864fea0b54400a73da540e078a802c044e07b93
         </Link>
       </div>
     </section>

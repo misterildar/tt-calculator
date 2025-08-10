@@ -1,7 +1,10 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 150px;
+<<<<<<< HEAD
   scrollbar-gutter: stable;
+=======
+>>>>>>> 6864fea0b54400a73da540e078a802c044e07b93
 }
 
 * {
@@ -19,13 +22,21 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+<<<<<<< HEAD
   -webkit-tap-highlight-color: transparent;
   outline: none;
+=======
+>>>>>>> 6864fea0b54400a73da540e078a802c044e07b93
 }
 
 main {
   max-width: var(--main-width);
+<<<<<<< HEAD
   padding: 0 64px;
+=======
+  margin: 0 auto;
+  padding-top: var(--header-height);
+>>>>>>> 6864fea0b54400a73da540e078a802c044e07b93
 }
 
 ul,

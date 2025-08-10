@@ -56,7 +56,10 @@ export const CalculateForm = ({ onSubmit }: CalculateFormProps) => {
       <Button
         type='submit'
         variant='calculate'
+<<<<<<< HEAD
         height={90}
+=======
+>>>>>>> 6864fea0b54400a73da540e078a802c044e07b93
         onClick={handleButtonClick}
         text={CALCULATE_TEXTS.BUTTON.submit}
       />

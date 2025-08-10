@@ -1,7 +1,11 @@
 .button {
   border: none;
   border-radius: 8px;
+<<<<<<< HEAD
   height: 78px;
+=======
+  height: 90px;
+>>>>>>> 6864fea0b54400a73da540e078a802c044e07b93
   cursor: pointer;
   font-family: 'Nunito', sans-serif;
   font-size: 32px;
@@ -13,8 +17,17 @@
   text-align: center;
   text-decoration: none;
   outline: none;
+<<<<<<< HEAD
   padding: 15px 0;
   flex-wrap: nowrap;
+=======
+  padding: 16px;
+  flex-wrap: nowrap;
+
+  &:hover:not(:disabled) {
+    font-size: 40px;
+  }
+>>>>>>> 6864fea0b54400a73da540e078a802c044e07b93
 }
 
 .primary {
@@ -45,10 +58,13 @@
   background: transparent;
   color: $blue;
   border: 2px solid $blue;
+<<<<<<< HEAD
 
   &:hover:not(:disabled) {
     background-color: $light-purple;
   }
+=======
+>>>>>>> 6864fea0b54400a73da540e078a802c044e07b93
 }
 
 .disabled {

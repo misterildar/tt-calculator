@@ -4,8 +4,14 @@
   max-width: 1600px;
   width: 100%;
   font-family: 'Nunito', sans-serif;
+<<<<<<< HEAD
   font-size: 24px;
   margin-bottom: 64px;
+=======
+
+  font-size: 24px;
+  margin: 64px 0;
+>>>>>>> 6864fea0b54400a73da540e078a802c044e07b93
 }
 
 .container {
@@ -13,6 +19,10 @@
   flex-direction: column;
   align-items: center;
   gap: 60px;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6864fea0b54400a73da540e078a802c044e07b93
   width: 100%;
 }
 
@@ -23,6 +33,16 @@
   gap: 32px;
 }
 
+<<<<<<< HEAD
+=======
+.heading {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 58px;
+  text-transform: uppercase;
+}
+
+>>>>>>> 6864fea0b54400a73da540e078a802c044e07b93
 .content {
   display: flex;
   flex-direction: row;
@@ -70,7 +90,10 @@
   font-weight: 400;
   line-height: 32px;
 }
+<<<<<<< HEAD
 
 .title {
   margin-bottom: 0;
 }
+=======
+>>>>>>> 6864fea0b54400a73da540e078a802c044e07b93

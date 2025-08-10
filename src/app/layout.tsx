@@ -1,9 +1,15 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+<<<<<<< HEAD
 import { Poster } from '@/components/poster/Poster';
 import { Footer } from '@/components/footer/Footer';
 import { Header } from '@/components/header/Header';
 import { ConsultationModalProvider } from '@/components/consultation-modal';
+=======
+
+import { Footer } from '@/components/footer/Footer';
+import { Header } from '@/components/header/Header';
+>>>>>>> 6864fea0b54400a73da540e078a802c044e07b93
 
 import './globals.css';
 
@@ -23,6 +29,26 @@ const nunito = localFont({
   variable: '--font-nunito',
   display: 'swap',
 });
+<<<<<<< HEAD
+=======
+
+const nunitoSans = localFont({
+  src: [
+    {
+      path: '../fonts/nunito-sans-v18-latin-regular.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/nunito-sans-v18-latin-600.woff2',
+      weight: '600',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-nunito-sans',
+  display: 'swap',
+});
+>>>>>>> 6864fea0b54400a73da540e078a802c044e07b93
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -36,6 +62,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
+<<<<<<< HEAD
       <body className={nunito.variable}>
         <ConsultationModalProvider>
           <Header />
@@ -43,6 +70,12 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </ConsultationModalProvider>
+=======
+      <body className={`${nunito.variable} ${nunitoSans.variable}`}>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+>>>>>>> 6864fea0b54400a73da540e078a802c044e07b93
       </body>
     </html>
   );
