@@ -1,0 +1,49 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 150px;
+  scrollbar-gutter: stable;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --header-height: 136px;
+  --main-width: 1728px;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+main {
+  max-width: var(--main-width);
+  padding: 0 64px;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html:has(dialog[open]) {
+  overflow: hidden;
+}
