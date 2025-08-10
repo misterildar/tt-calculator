@@ -1,9 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import styles from './faq.module.scss';
+import Link from 'next/link';
+import { Button, Title } from '@/ui';
 import { FaqItem } from './FaqItem';
 import { faqData } from './mock.data';
+
+import styles from './faq.module.scss';
 
 export function Faq() {
   const [expanded, setExpanded] = useState<number | null>(null);
@@ -13,9 +16,9 @@ export function Faq() {
   };
 
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id='faq'>
       <div className={styles.container}>
-        <h3 className={styles.head_title}>FAQ</h3>
+        <Title text='FAQ' />
         <div className={styles.list}>
           {faqData.map((item) => (
             <FaqItem
@@ -27,6 +30,10 @@ export function Faq() {
             />
           ))}
         </div>
+        <h3 className={styles.text}>Visualize the results with calculator!</h3>
+        <Link href='#calculate'>
+          <Button text='Calculate your future Now' width={448} />
+        </Link>
       </div>
     </section>
   );

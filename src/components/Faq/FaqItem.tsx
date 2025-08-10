@@ -1,4 +1,4 @@
-import { FaqArrow } from '@/ui';
+import { Arrow } from '@/ui';
 import styles from './faq.module.scss';
 
 interface Props {
@@ -17,7 +17,7 @@ export function FaqItem({ title, content, isExpanded, onToggle }: Props) {
       >
         <p>{title}</p>
         <div>
-          <FaqArrow isOpen={isExpanded} />
+          <Arrow isOpen={isExpanded} />
         </div>
       </div>
 

@@ -2,11 +2,13 @@ import { ButtonHTMLAttributes } from 'react';
 import styles from './Button.module.scss';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'calculator';
+  variant?: 'primary' | 'secondary' | 'calculate' | 'transparent';
   isLoading?: boolean;
   disabled?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   text: string;
+  width?: number;
+  height?: number;
 }
 
 export const Button = ({
@@ -17,6 +19,8 @@ export const Button = ({
   disabled = false,
   isLoading = false,
   variant = 'primary',
+  width,
+  height,
   ...props
 }: ButtonProps) => {
   const buttonClasses = [
@@ -29,11 +33,17 @@ export const Button = ({
     .filter(Boolean)
     .join(' ');
 
+  const buttonStyle: React.CSSProperties = {
+    ...(width !== undefined && { width: `${width}px` }),
+    ...(height !== undefined && { height: `${height}px` }),
+  };
+
   return (
     <button
       type={type}
       onClick={onClick}
       className={buttonClasses}
+      style={Object.keys(buttonStyle).length > 0 ? buttonStyle : undefined}
       disabled={disabled || isLoading}
       {...props}
     >

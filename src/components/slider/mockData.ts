@@ -5,7 +5,7 @@ export const mockSlidesData = [
     title: 'Walter Bachtiger',
     subTitle: 'CEO & Founder',
     description:
-      'Successfully led VoiceBase to a $125M exit to LivePerson, achieving an impressive 60x return on seed valuation. Previously headed strategy initiatives at Switzerland No. 1 retail bank, bringing deep financial expertise and entrepreneurial vision to TimeTrust.',
+      "Successfully led VoiceBase to a $125M exit to LivePerson, achieving an impressive 60x return on seed valuation. Previously headed strategy initiatives at Switzerland's No. 1 retail bank, bringing deep financial expertise and entrepreneurial vision to TimeTrust.",
   },
   {
     id: '2',
@@ -13,7 +13,7 @@ export const mockSlidesData = [
     title: 'Michael Gitelmaker',
     subTitle: 'President & Co-Founder',
     description:
-      'Distinguished former Chief Investment Officer for Thailand Royal Family with extensive experience orchestrating over 60 successful IPOs. Brings unparalleled expertise in asset managemen strategies and institutional fund structures across global markets.',
+      "Distinguished former Chief Investment Officer for Thailand's Royal Family with extensive experience orchestrating over 60 successful IPOs. Brings unparalleled expertise in asset management strategies and institutional fund structures across global markets.",
   },
   {
     id: '3',
@@ -21,7 +21,7 @@ export const mockSlidesData = [
     title: 'Walter Bachtiger',
     subTitle: 'CEO & Founder',
     description:
-      'Successfully led VoiceBase to a $125M exit to LivePerson, achieving an impressive 60x return on seed valuation. Previously headed strategy initiatives at Switzerland No. 1 retail bank, bringing deep financial expertise and entrepreneurial vision to TimeTrust.',
+      "Successfully led VoiceBase to a $125M exit to LivePerson, achieving an impressive 60x return on seed valuation. Previously headed strategy initiatives at Switzerland's No. 1 retail bank, bringing deep financial expertise and entrepreneurial vision to TimeTrust.",
   },
   {
     id: '4',
@@ -29,6 +29,6 @@ export const mockSlidesData = [
     title: 'Michael Gitelmaker',
     subTitle: 'President & Co-Founder',
     description:
-      'Distinguished former Chief Investment Officer for Thailand Royal Family with extensive experience orchestrating over 60 successful IPOs. Brings unparalleled expertise in asset managemen strategies and institutional fund structures across global markets.',
+      "Distinguished former Chief Investment Officer for Thailand's Royal Family with extensive experience orchestrating over 60 successful IPOs. Brings unparalleled expertise in asset management strategies and institutional fund structures across global markets.",
   },
 ];

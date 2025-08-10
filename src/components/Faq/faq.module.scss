@@ -2,20 +2,13 @@
   max-width: 1600px;
   width: 100%;
   font-family: 'Nunito', sans-serif;
+  margin-bottom: 64px;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  overflow: hidden;
-}
-
-.head_title {
-  font-size: 48px;
-  line-height: 58px;
-  font-weight: 600;
 }
 
 .list {
@@ -23,7 +16,7 @@
   flex-direction: column;
   gap: 20px;
   width: 100%;
-  padding: 60px 64px;
+  padding-bottom: 60px;
 }
 
 .faq {
@@ -84,4 +77,9 @@
 
 .arrow.open {
   transform: rotate(180deg);
+}
+
+.text {
+  @include text($size: 32px, $weight: 600, $lineHeight: 46px);
+  margin-bottom: 28px;
 }

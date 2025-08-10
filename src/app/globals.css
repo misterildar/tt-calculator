@@ -1,37 +1,7 @@
-@font-face {
-  font-display: swap;
-  font-family: 'Nunito Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/nunito-sans-v18-latin-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Nunito Sans';
-  font-style: normal;
-  font-weight: 600;
-  src: url('/fonts/nunito-sans-v18-latin-600.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/nunito-v31-latin-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 600;
-  src: url('/fonts/nunito-v31-latin-600.woff2') format('woff2');
-}
-
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 150px;
+  scrollbar-gutter: stable;
 }
 
 * {
@@ -41,7 +11,21 @@ html {
 }
 
 :root {
-  --desktop-width: 1728px;
+  --header-height: 136px;
+  --main-width: 1728px;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+main {
+  max-width: var(--main-width);
+  padding: 0 64px;
 }
 
 ul,
@@ -58,4 +42,8 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+html:has(dialog[open]) {
+  overflow: hidden;
 }

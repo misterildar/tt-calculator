@@ -1,0 +1,30 @@
+.modal {
+  @include boxShadow();
+  border: none;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 100%;
+  overflow: visible;
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+  }
+}
+
+.modalContent {
+  padding: 64px 32px;
+  background: $white;
+  border-radius: 16px;
+  position: relative;
+}
+
+.modalCloseButton {
+  position: absolute;
+  max-width: 25px;
+  top: 25px;
+  right: 25px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}

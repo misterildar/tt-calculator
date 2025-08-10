@@ -1,8 +1,7 @@
 .button {
   border: none;
   border-radius: 8px;
-  height: 90px;
-
+  height: 78px;
   cursor: pointer;
   font-family: 'Nunito', sans-serif;
   font-size: 32px;
@@ -14,15 +13,21 @@
   text-align: center;
   text-decoration: none;
   outline: none;
-
-  &:hover:not(:disabled) {
-    font-size: 40px;
-  }
+  padding: 15px 0;
+  flex-wrap: nowrap;
 }
 
 .primary {
   background: $blue;
   color: $white;
+
+  &:hover:not(:disabled) {
+    background-color: $blue-hover;
+  }
+
+  &:active {
+    background-color: $indigo-color;
+  }
 }
 
 .secondary {
@@ -31,9 +36,19 @@
   border: 2px solid $blue;
 }
 
-.calculator {
+.calculate {
   background: $indigo-color;
   color: $white;
+}
+
+.transparent {
+  background: transparent;
+  color: $blue;
+  border: 2px solid $blue;
+
+  &:hover:not(:disabled) {
+    background-color: $light-purple;
+  }
 }
 
 .disabled {

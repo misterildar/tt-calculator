@@ -1,8 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
-import { Arrow } from '@/ui';
+import { Arrow, Button } from '@/ui';
 import { SlideCard } from './SlideCard';
 import { mockSlidesData } from './mockData';
 
@@ -29,28 +30,46 @@ export const Slider = () => {
 
   return (
     <section className={styles.section}>
-      <div className={styles.container}>
-        <div
-          className={styles.track}
-          style={{ transform: `translateX(-${currentSlide * SLIDE_OFFSET}px)` }}
+      <div className={styles.separator}>
+        <div className={styles.container}>
+          <div
+            className={styles.track}
+            style={{ transform: `translateX(-${currentSlide * SLIDE_OFFSET}px)` }}
+          >
+            {mockSlidesData.map((slide, index) => (
+              <SlideCard key={slide.id} slide={slide} index={index} />
+            ))}
+          </div>
+        </div>
+        <button className={styles.prevButton} onClick={prevSlide} disabled={currentSlide === 0}>
+          <Arrow
+            isOpen={false}
+            color='white'
+            size={{ width: 32, height: 18 }}
+            strokeWidth={3}
+            className={styles.leftArrow}
+          />
+        </button>
+        <button
+          className={styles.nextButton}
+          onClick={nextSlide}
+          disabled={currentSlide === mockSlidesData.length - 1}
         >
-          {mockSlidesData.map((slide, index) => (
-            <SlideCard key={slide.id} slide={slide} index={index} />
-          ))}
-        </div>
+          <Arrow
+            isOpen={false}
+            color='white'
+            size={{ width: 32, height: 18 }}
+            strokeWidth={3}
+            className={styles.rightArrow}
+          />
+        </button>
       </div>
-      <button className={styles.prevButton} onClick={prevSlide} disabled={currentSlide === 0}>
-        <Arrow />
-      </button>
-      <button
-        className={styles.nextButton}
-        onClick={nextSlide}
-        disabled={currentSlide === mockSlidesData.length - 1}
-      >
-        <div className={styles.rotate}>
-          <Arrow />
-        </div>
-      </button>
+      <div className={styles.wrapper}>
+        <h3 className={styles.text}>Ready to secure your financial future with our expert team?</h3>
+        <Link href='#calculate'>
+          <Button text='Calculate your retirement potential' width={574} />
+        </Link>
+      </div>
     </section>
   );
 };
