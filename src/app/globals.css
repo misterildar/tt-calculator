@@ -25,8 +25,7 @@ body {
 
 main {
   max-width: var(--main-width);
-  padding: 0 64px;
-  margin: 0 auto;
+  margin: var(--header-height) auto 0;
 }
 
 ul,

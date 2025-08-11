@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import { Poster } from '@/components/poster/Poster';
 import { Footer } from '@/components/footer/Footer';
 import { Header } from '@/components/header/Header';
 import { ConsultationModalProvider } from '@/components/consultation-modal';
@@ -39,7 +38,6 @@ export default function RootLayout({
       <body className={nunito.variable}>
         <ConsultationModalProvider>
           <Header />
-          <Poster />
           <main>{children}</main>
           <Footer />
         </ConsultationModalProvider>

@@ -1,5 +1,6 @@
 import { Slider } from '@/components/slider/Slider';
 import { Calculate } from '@/components/calculate/Calculate';
+import { Poster } from '@/components/poster/Poster';
 
 import { AboutUs } from '@/components/aboutUs/AboutUs';
 
@@ -12,6 +13,7 @@ import { HowItWorks } from '@/components/howItWorks/HowItWorks';
 export default function HomePage() {
   return (
     <div className={styles.main} id='top'>
+      <Poster />
       <HowItWorks />
       <Calculate />
       <KeyAdvantages />
