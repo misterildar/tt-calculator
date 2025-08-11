@@ -22,7 +22,7 @@ export const AgeField = forwardRef<HTMLInputElement, Pick<FormFieldsProps, 'cont
           <input
             ref={ref}
             type='text'
-            className={`${styles.input} ${errors.currentAge ? styles.inputError : ''}`}
+            className={`${styles.input} ${field.value ? styles.filled : ''} ${errors.currentAge ? styles.inputError : ''}`}
             placeholder={CALCULATE_TEXTS.PLACEHOLDERS.age}
             value={field.value ? field.value.toString() : ''}
             onChange={(e) => fieldHandlers.age(e.target.value, field.onChange)}
@@ -69,7 +69,7 @@ export const InvestmentField = forwardRef<
           ref={ref}
           type='text'
           placeholder={CALCULATE_TEXTS.PLACEHOLDERS.investment}
-          className={`${styles.input} ${errors.initialInvestment ? styles.inputError : ''}`}
+          className={`${styles.input} ${field.value ? styles.filled : ''} ${errors.initialInvestment ? styles.inputError : ''}`}
           value={field.value ? field.value.toString() : ''}
           onChange={(e) => fieldHandlers.investment(e.target.value, field.onChange)}
         />
@@ -110,7 +110,7 @@ export const ContributionYearsField = ({
             min={CALCULATE_CONSTANTS.SLIDER.MIN}
             max={CALCULATE_CONSTANTS.SLIDER.MAX}
             step={CALCULATE_CONSTANTS.SLIDER.STEP}
-            className={styles.slider}
+            className={`${styles.slider} ${field.value ? styles.filled : ''} ${errors.contributionYears ? styles.inputError : ''}`}
             onChange={(e) => field.onChange(parseInt(e.target.value))}
           />
         )}

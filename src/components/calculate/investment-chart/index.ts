@@ -1,1 +1,2 @@
-export { InvestmentChart } from './InvestmentChart';
+export { SingleInvestmentChart } from './SingleInvestmentChart';
+export { MultipleInvestmentCharts } from './MultipleInvestmentCharts';

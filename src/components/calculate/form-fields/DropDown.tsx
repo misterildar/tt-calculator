@@ -40,7 +40,7 @@ export const Dropdown = <T extends FieldValues = FieldValues>({
             <div className={styles.dropdownContainer}>
               <button
                 type='button'
-                className={`${styles.input} ${errors[name] ? styles.inputError : ''} ${styles.dropdownTrigger}`}
+                className={`${styles.input} ${field.value ? styles.filled : ''} ${errors[name] ? styles.inputError : ''} ${styles.dropdownTrigger}`}
                 onClick={() => setIsOpen(!isOpen)}
                 aria-expanded={isOpen}
                 aria-haspopup='listbox'

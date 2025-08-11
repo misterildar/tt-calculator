@@ -1,4 +1,5 @@
 import { Control, FieldErrors, FieldValues, Path } from 'react-hook-form';
+import type { CalculateResponse } from '@/api';
 
 export interface CalculateFormData {
   currentAge: number | '';
@@ -29,11 +30,6 @@ export type DropdownProps<T extends FieldValues = FieldValues> = {
   placeholder?: string;
 };
 
-export interface CalculateContentProps {
-  isLoading: boolean;
-  chartData: InvestmentScenario[];
-}
-
 export interface InvestmentScenario {
   year: number;
   optimistic: number;
@@ -43,4 +39,26 @@ export interface InvestmentScenario {
 
 export interface InvestmentChartProps {
   data: InvestmentScenario[];
+}
+
+export interface CalculatorFormData {
+  currentAge: number | '';
+  gender: 'male' | 'female' | '';
+  initialInvestment: number;
+  contributionYears: number;
+}
+
+export interface CalculateContentProps {
+  isLoading: boolean;
+  serverResponse: CalculateResponse | null;
+  error?: string | null;
+}
+
+export interface ServerResultItem {
+  year: number;
+  age: number;
+  payment: number;
+  cumulative_payment: number;
+  survivors_count: number;
+  fund_size: number;
 }

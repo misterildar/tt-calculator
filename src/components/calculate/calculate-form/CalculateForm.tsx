@@ -1,8 +1,5 @@
 import { useForm } from 'react-hook-form';
 
-import { isSubmitDisabled } from '../utils/validation';
-import { CALCULATE_CONSTANTS, CALCULATE_TEXTS } from '../utils/constants';
-import { useFocusFirstInvalidField } from '../utils/hooks/useFocusFirstInvalidField';
 import {
   AgeField,
   GenderField,
@@ -11,18 +8,20 @@ import {
   ContributionYearsField,
 } from '../form-fields';
 import { Button } from '@/ui';
+import { isSubmitDisabled } from '../utils/validation';
+import { useFocusFirstInvalidField } from '../utils/hooks';
+import { CALCULATE_CONSTANTS, CALCULATE_TEXTS } from '../utils/constants';
 
 import { CalculateFormProps, CalculateFormData } from '../types';
 import styles from './CalculateForm.module.scss';
 
 export const CalculateForm = ({ onSubmit }: CalculateFormProps) => {
   const {
-    reset,
     watch,
     trigger,
     control,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<CalculateFormData>({
     defaultValues: CALCULATE_CONSTANTS.DEFAULT_VALUES,
     mode: 'all',
@@ -41,13 +40,8 @@ export const CalculateForm = ({ onSubmit }: CalculateFormProps) => {
     }
   };
 
-  const handleFormSubmit = (data: CalculateFormData) => {
-    onSubmit(data);
-    reset(CALCULATE_CONSTANTS.DEFAULT_VALUES);
-  };
-
   return (
-    <form className={styles.form} onSubmit={handleSubmit(handleFormSubmit)}>
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <AgeField control={control} errors={errors} ref={ageFieldRef} />
       <GenderField control={control} errors={errors} ref={genderFieldRef} />
       <InvestmentField control={control} errors={errors} ref={investmentFieldRef} />
@@ -55,7 +49,7 @@ export const CalculateForm = ({ onSubmit }: CalculateFormProps) => {
       <DisclaimerField />
       <Button
         type='submit'
-        variant='calculate'
+        variant={isValid ? 'primary' : 'calculate'}
         height={90}
         onClick={handleButtonClick}
         text={CALCULATE_TEXTS.BUTTON.submit}

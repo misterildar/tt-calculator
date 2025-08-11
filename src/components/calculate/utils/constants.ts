@@ -7,11 +7,11 @@ export const CALCULATE_CONSTANTS = {
   },
 
   VALIDATION: {
-    MIN_AGE: 50,
-    MAX_AGE: 75,
+    MIN_AGE: 30,
+    MAX_AGE: 120,
     MIN_INVESTMENT: 10000,
-    MIN_CONTRIBUTION_YEARS: 5,
-    MAX_CONTRIBUTION_YEARS: 30,
+    MIN_CONTRIBUTION_YEARS: 10,
+    MAX_CONTRIBUTION_YEARS: 50,
   },
 
   SLIDER: {
@@ -47,18 +47,18 @@ export const CALCULATE_TEXTS = {
 
   ERRORS: {
     ageRequired: 'Age is required',
-    ageMin: 'The entered age must be between 50 and 75',
-    ageMax: 'The entered age must be between 50 and 75',
+    ageMin: 'The entered age must be between 30 and 120',
+    ageMax: 'The entered age must be between 30 and 120',
     ageFormat: 'Enter your age in number format',
     genderRequired: 'Please select your gender',
     investmentRequired: 'Investment amount is required',
     investmentMin: 'Minimum investment is $10,000',
     investmentFormat: 'Enter your investment in number format',
-    contributionYearsRequired: 'Minimum contribution period is 5 years',
+    contributionYearsRequired: 'Minimum contribution period is 10 years',
   },
 
   HINTS: {
-    minYears: '(min 5 years)',
+    minYears: '(min 10 years)',
     yearsLabel: 'Years',
   },
 
