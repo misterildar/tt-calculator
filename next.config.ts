@@ -15,6 +15,14 @@ const nextConfig: NextConfig = {
     };
     return config;
   },
+  async rewrites() {
+    return [
+      {
+        source: '/api/proxy/:path*',
+        destination: `${process.env.NEXT_PUBLIC_API_URL || 'http://49.12.128.167:7001/api/'}:path*`,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
