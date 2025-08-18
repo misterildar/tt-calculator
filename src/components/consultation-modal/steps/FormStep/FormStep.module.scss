@@ -1,0 +1,11 @@
+.formStep {
+  @include flex-column(20px);
+}
+
+.link {
+  @include link-style;
+}
+
+.button {
+  margin-top: 20px;
+}

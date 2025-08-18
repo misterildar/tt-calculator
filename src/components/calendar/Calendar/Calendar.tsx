@@ -1,60 +1,67 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 
-import { customStyles } from '../utils';
+import { CalendarIcon } from '@/ui';
+import { customStyles, formatDate } from '../utils';
 import styles from './Calendar.module.scss';
 
-const normalizeDate = (date: Date) => {
-  const d = new Date(date);
-  d.setHours(0, 0, 0, 0);
-  return d;
-};
+interface CalendarProps {
+  onDateSelect?: (date: string) => void;
+}
 
-export const Calendar = () => {
-  const [today, setToday] = useState(normalizeDate(new Date()));
+export const Calendar = ({ onDateSelect }: CalendarProps) => {
+  const today = new Date();
 
   const [selected, setSelected] = useState<Date>(today);
 
-  const disabled = (day: Date) => normalizeDate(day) < today;
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
-  const formatFullDate = (date: Date, locale = 'en-US'): string => {
-    return date.toLocaleDateString(locale, {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
+  const toggleCalendar = () => {
+    setIsCalendarOpen(!isCalendarOpen);
   };
 
-  useEffect(() => {
-    const msToMidnight = () => {
-      const now = new Date();
-      const nextMidnight = new Date(now);
-      nextMidnight.setHours(24, 0, 0, 0);
-      return nextMidnight.getTime() - now.getTime();
-    };
-    const timer = setTimeout(() => setToday(normalizeDate(new Date())), msToMidnight());
-    return () => clearTimeout(timer);
-  }, [today]);
+  const handleDateSelect = (date: Date | undefined) => {
+    if (!date) return;
+    setSelected(date);
+    onDateSelect?.(formatDate(date));
+    toggleCalendar();
+  };
+
+  const displayDate = selected.toLocaleDateString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+
+  const disablePastDates = (day: Date) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return day < today;
+  };
 
   return (
     <div className={styles.calendar}>
-      <input value={formatFullDate(selected)} className={styles.inputDate} readOnly />
-      <div className={styles.container}>
+      <label className={styles.label}>Preferred Day for Call</label>
+      <div className={styles.todayDate}>
+        <input value={displayDate} className={styles.inputDate} readOnly />
+        <button type='button' className={styles.calendarIcon} onClick={toggleCalendar}>
+          <CalendarIcon />
+        </button>
+      </div>
+      {isCalendarOpen && (
         <DayPicker
           mode='single'
           selected={selected}
-          onSelect={(date) => {
-            if (date) setSelected(date);
-          }}
+          onSelect={handleDateSelect}
           showOutsideDays
-          disabled={disabled}
+          disabled={disablePastDates}
           classNames={customStyles}
         />
-      </div>
+      )}
     </div>
   );
 };

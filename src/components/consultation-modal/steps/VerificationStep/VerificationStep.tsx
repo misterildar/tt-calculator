@@ -1,11 +1,13 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
+
 import { Input } from '@/ui/input';
 import { Button } from '@/ui/button';
-import { VerificationStepProps } from '../types';
-import { MODAL_TEXTS } from '../constants';
-import styles from '../ConsultationModal.module.scss';
+import { MODAL_TEXTS } from '../../constants';
+import { VerificationStepProps } from '../../types';
+
+import styles from './VerificationStep.module.scss';
 
 export interface VerificationData {
   code: string;
@@ -15,7 +17,7 @@ export const VerificationStep = ({ code, setCode, onNext, onBack }: Verification
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<VerificationData>({
     defaultValues: { code },
   });
@@ -36,10 +38,10 @@ export const VerificationStep = ({ code, setCode, onNext, onBack }: Verification
           maxLength={6}
           error={errors.code?.message}
           {...register('code', {
-            required: 'Введите код подтверждения',
+            required: 'Please enter verification code',
             minLength: {
               value: 5,
-              message: 'Код должен содержать минимум 5 символов',
+              message: 'Code must contain at least 5 characters',
             },
           })}
         />
@@ -51,7 +53,11 @@ export const VerificationStep = ({ code, setCode, onNext, onBack }: Verification
             text={MODAL_TEXTS.VERIFICATION.backButton}
             onClick={onBack}
           />
-          <Button type='submit' variant='primary' text={MODAL_TEXTS.VERIFICATION.button} />
+          <Button
+            type='submit'
+            variant={isValid ? 'primary' : 'calculate'}
+            text={MODAL_TEXTS.VERIFICATION.button}
+          />
         </div>
       </form>
 

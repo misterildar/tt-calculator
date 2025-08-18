@@ -1,0 +1,16 @@
+.verificationStep {
+  @include flex-column(24px);
+}
+
+.description {
+  @include step-description;
+}
+
+.buttonGroup {
+  @include button-group;
+}
+
+.resendLink {
+  text-decoration: underline;
+  @include link-style;
+}

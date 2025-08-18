@@ -1,0 +1,70 @@
+.scheduleStep {
+  @include flex-column(12px);
+}
+
+.description {
+  @include step-description;
+}
+
+.label {
+  @include step-label;
+}
+
+.formGroup {
+  @include flex-column(15px);
+  margin-top: 20px;
+  position: relative;
+}
+
+.labelGroup {
+  @include flex-column(8px);
+}
+
+.timeSlot {
+  padding: 8px 16px;
+  border: 1px solid $light-gray;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  @include step-label;
+
+  &:hover:not(.disabled) {
+    border-color: $blue;
+  }
+
+  &.selected {
+    background-color: $blue;
+    color: $white;
+    border-color: $blue;
+  }
+
+  &.disabled {
+    background-color: $purple-gray;
+    color: $text-secondary;
+    border-color: $medium-gray;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  input[type='radio'] {
+    display: none;
+  }
+}
+
+.buttonGroup {
+  @include button-group;
+}
+
+.errorMessage {
+  position: absolute;
+  bottom: -22px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: $red;
+}

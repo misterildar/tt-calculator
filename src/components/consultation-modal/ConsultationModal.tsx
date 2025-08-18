@@ -1,10 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+
 import { Modal } from '@/ui';
-import { FormStep, VerificationStep, ScheduleStep, SuccessStep } from './steps';
 import { ConsultationModalProps, FormData } from './types';
+import { FormStep, VerificationStep, ScheduleStep, SuccessStep } from './steps';
 import { MODAL_STEPS, getStepNumber, MODAL_TEXTS, ModalStep } from './constants';
+
 import styles from './ConsultationModal.module.scss';
 
 export const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
@@ -20,7 +22,10 @@ export const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) =
 
   const [verificationCode, setVerificationCode] = useState('');
 
-  const [selectedDate, setSelectedDate] = useState('');
+  const [selectedDate, setSelectedDate] = useState(() => {
+    const today = new Date();
+    return today.toISOString().split('T')[0];
+  });
 
   const [selectedTime, setSelectedTime] = useState('');
 

@@ -6,3 +6,5 @@ export { Button } from './button';
 export type { ButtonProps } from './button';
 export { Modal } from './modal';
 export { CloseIcon } from './close-icon';
+export { CheckIcon } from './check-icon';
+export { CalendarIcon } from './calendar-icon';

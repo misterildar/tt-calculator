@@ -15,20 +15,18 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 
     return (
       <div className={`${styles.checkboxGroup} ${className}`}>
-        <div className={styles.checkboxWrapper}>
-          <input
-            ref={ref}
-            type='checkbox'
-            id={checkboxId}
-            className={`${styles.checkbox} ${error ? styles.error : ''}`}
-            {...props}
-          />
-          {label && (
-            <label htmlFor={checkboxId} className={styles.label}>
-              {label}
-            </label>
-          )}
-        </div>
+        <input
+          ref={ref}
+          type='checkbox'
+          id={checkboxId}
+          className={`${styles.checkbox} ${error ? styles.error : ''}`}
+          {...props}
+        />
+        {label && (
+          <label htmlFor={checkboxId} className={styles.label}>
+            {label}
+          </label>
+        )}
         {error && <span className={styles.errorMessage}>{error}</span>}
       </div>
     );

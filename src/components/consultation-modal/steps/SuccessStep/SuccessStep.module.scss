@@ -1,0 +1,15 @@
+.description {
+  @include step-description;
+}
+
+.expectations {
+  margin: 32px 0 24px;
+}
+
+.label {
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  @include step-label;
+}
