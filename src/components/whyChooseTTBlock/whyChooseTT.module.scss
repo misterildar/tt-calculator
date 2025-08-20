@@ -1,14 +1,17 @@
 .why_choose_tt {
   font-family: 'Nunito', sans-serif;
-  @include columnCenter();
-  padding-bottom: 64px;
-  max-width: 1600px;
+  @include section;
+  margin-bottom: 64px;
 }
 
 .blocks {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+
+  @media screen and (max-width: 1100px) {
+    grid-template-columns: 1fr;
+  }
 }
 .block_wrapper {
   @include boxShadow();
@@ -31,11 +34,9 @@
   font-weight: 600;
   font-size: 32px;
   line-height: 46px;
-  max-width: 466px;
 }
 .text {
   font-weight: 400;
   font-size: 24px;
   line-height: 32px;
-  max-width: 466px;
 }

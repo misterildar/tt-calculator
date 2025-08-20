@@ -61,7 +61,7 @@ export const Footer = () => {
             );
           })}
         </div>
-        <div>
+        <div className={styles.formContainer}>
           <FooterForm />
         </div>
       </div>

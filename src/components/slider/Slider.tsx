@@ -67,7 +67,7 @@ export const Slider = () => {
       <div className={styles.wrapper}>
         <h3 className={styles.text}>Ready to secure your financial future with our expert team?</h3>
         <Link href='#calculate'>
-          <Button text='Calculate your retirement potential' width={574} />
+          <Button text='Calculate your retirement potential' />
         </Link>
       </div>
     </section>

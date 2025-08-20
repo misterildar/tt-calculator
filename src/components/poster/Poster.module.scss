@@ -30,10 +30,11 @@
 .posterContent {
   max-width: 750px;
   width: 100%;
-  padding-bottom: 170px;
+  padding: 0 0 170px 64px;
 }
 
 .buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 24px;
 }

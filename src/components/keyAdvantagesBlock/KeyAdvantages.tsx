@@ -24,7 +24,7 @@ const KeyAdvantages = () => {
             </div>
           ))}
         </div>
-        <Image alt='image' src={rightSideImg} width={736} height={633} />
+        <Image alt='image' src={rightSideImg} width={736} height={633} className={styles.image} />
       </div>
       <div className={styles.bottom_side}>
         {keyAdvantagesBottomBlock.map((item) => (

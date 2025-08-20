@@ -31,9 +31,9 @@ export const CalculateContent = ({ isLoading, serverResponse, error }: Calculate
         <Button
           variant='transparent'
           text='Request expert advice'
-          width={621}
           height={90}
           onClick={openModal}
+          className={styles.button}
         />
       </div>
     );

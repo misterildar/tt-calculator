@@ -51,7 +51,6 @@ export const FormStep = ({ formData, setFormData, onNext }: FormStepProps) => {
       ))}
       <Button
         type='submit'
-        width={195}
         text={FORM_TEXTS.button}
         className={styles.button}
         variant={isValid ? 'primary' : 'calculate'}

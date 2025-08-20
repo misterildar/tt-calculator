@@ -7,7 +7,6 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   text: string;
-  width?: number;
   height?: number;
 }
 
@@ -19,7 +18,6 @@ export const Button = ({
   disabled = false,
   isLoading = false,
   variant = 'primary',
-  width,
   height,
   ...props
 }: ButtonProps) => {
@@ -34,7 +32,6 @@ export const Button = ({
     .join(' ');
 
   const buttonStyle: React.CSSProperties = {
-    ...(width !== undefined && { width: `${width}px` }),
     ...(height !== undefined && { height: `${height}px` }),
   };
 

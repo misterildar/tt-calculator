@@ -1,6 +1,5 @@
 .section {
-  max-width: 1600px;
-  width: 100%;
+  @include section;
   font-family: 'Nunito', sans-serif;
   margin-bottom: 64px;
 }

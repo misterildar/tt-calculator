@@ -19,7 +19,12 @@ export const SuccessStep = ({ onClose }: SuccessStepProps) => {
           ))}
         </ul>
       </div>
-      <Button onClick={onClose} width={436} variant='primary' text={MODAL_TEXTS.SUCCESS.button} />
+      <Button
+        onClick={onClose}
+        variant='primary'
+        text={MODAL_TEXTS.SUCCESS.button}
+        className={styles.button}
+      />
     </div>
   );
 };

@@ -1,6 +1,5 @@
 .keyAdvantages {
-  @include columnCenter();
-  padding-bottom: 64px;
+  @include section;
 }
 
 .left_side {
@@ -9,10 +8,17 @@
   justify-content: space-between;
   gap: 32px;
 }
+
 .top_side {
   display: flex;
   gap: 56px;
+
+  @media screen and (max-width: 1100px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
+
 .block_wrapper {
   @include boxShadow();
   display: flex;
@@ -53,7 +59,6 @@
   @include boxShadow();
   border: 1px solid #eeedff;
   padding: 32px;
-  max-width: 520px;
   border-radius: 16px;
   gap: 32px;
 }
@@ -61,8 +66,11 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-top: 32px;
-  max-width: 1600px;
   gap: 20px;
+
+  @media screen and (max-width: 1100px) {
+    grid-template-columns: 1fr;
+  }
 }
 .bottom_title {
   font-family: 'Nunito', sans-serif;
@@ -75,4 +83,14 @@
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
+}
+
+.image {
+  @media screen and (max-width: 1100px) {
+    display: flex;
+    width: 100%;
+    max-width: 736px;
+    height: auto;
+    object-fit: contain;
+  }
 }

@@ -32,7 +32,7 @@ export function Faq() {
         </div>
         <h3 className={styles.text}>Visualize the results with calculator!</h3>
         <Link href='#calculate'>
-          <Button text='Calculate your future Now' width={448} />
+          <Button text='Calculate your future Now' />
         </Link>
       </div>
     </section>

@@ -8,16 +8,13 @@ export const AboutUs = () => {
     <div id='about-us' className={styles.aboutContainer}>
       <Title text='ABOUT US' />
       <div className={styles.aboutContent}>
-        <div className={styles.aboutImageContainer}>
-          <Image
-            src={'/images/about_Image.png'}
-            alt={'Our Team'}
-            fill
-            sizes='(max-width: 780px) 100vw, 50vw'
-            className={styles.aboutImage}
-            style={{ objectFit: 'cover', objectPosition: 'center' }}
-          />
-        </div>
+        <Image
+          src={'/images/about_Image.png'}
+          className={styles.image}
+          alt='image'
+          width={780}
+          height={512}
+        />
         <div className={styles.aboutText}>
           {ABOUT_US_TEXT.map((item, index) => {
             return <p key={`AboutUs${index}`}>{item}</p>;

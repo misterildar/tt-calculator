@@ -20,14 +20,9 @@ export const Poster = () => {
           </p>
           <div className={styles.buttons}>
             <Link href='#calculate'>
-              <Button text='Calculate' width={210} />
+              <Button text='Calculate' />
             </Link>
-            <Button
-              variant='transparent'
-              text='Request expert advice'
-              width={450}
-              onClick={openModal}
-            />
+            <Button variant='transparent' text='Request expert advice' onClick={openModal} />
           </div>
         </div>
       </div>
