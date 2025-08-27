@@ -3,8 +3,8 @@ import type { CalculateResponse } from '@/api';
 import styles from './InvestmentChart.module.scss';
 
 const CONFIG = {
-  width: 860,
-  height: 400,
+  width: 1500,
+  height: 600,
   pad: { t: 10, r: 40, b: 60, l: 150 },
   tickCount: 6,
   stroke: 2,
@@ -30,6 +30,7 @@ const adjustValue = (value: number): number => {
 interface MultipleInvestmentChartsProps {
   data: CalculateResponse['results'];
   summary?: CalculateResponse['summary'];
+  multiChart?: boolean;
 }
 
 const Chart = ({
@@ -261,7 +262,11 @@ const Chart = ({
   );
 };
 
-export const MultipleInvestmentCharts = ({ data, summary }: MultipleInvestmentChartsProps) => {
+export const MultipleInvestmentCharts = ({
+  data,
+  summary,
+  multiChart,
+}: MultipleInvestmentChartsProps) => {
   if (!data.length) return null;
 
   return (
@@ -274,40 +279,50 @@ export const MultipleInvestmentCharts = ({ data, summary }: MultipleInvestmentCh
         formatter={formatCurrency}
       />
 
-      <Chart
-        data={data}
-        valueKey='cumulative_payment'
-        title='Your Cumulative Payments'
-        color={COLORS.secondary}
-        formatter={formatCurrency}
-      />
+      {multiChart && (
+        <>
+          <Chart
+            data={data}
+            valueKey='cumulative_payment'
+            title='Your Cumulative Payments'
+            color={COLORS.secondary}
+            formatter={formatCurrency}
+          />
 
-      {summary && (
-        <div className={styles.summarySection}>
-          <h3 className={styles.chartTitle}>Summary Results</h3>
-          <div className={styles.summaryGrid}>
-            <div className={styles.summaryCard}>
-              <div className={styles.summaryLabel}>Total Investment</div>
-              <div className={styles.summaryValue}>{formatCurrency(summary.total_investment)}</div>
+          {summary && (
+            <div className={styles.summarySection}>
+              <h3 className={styles.chartTitle}>Summary Results</h3>
+              <div className={styles.summaryGrid}>
+                <div className={styles.summaryCard}>
+                  <div className={styles.summaryLabel}>Total Investment</div>
+                  <div className={styles.summaryValue}>
+                    {formatCurrency(summary.total_investment)}
+                  </div>
+                </div>
+                <div className={styles.summaryCard}>
+                  <div className={styles.summaryLabel}>Total Payments</div>
+                  <div className={styles.summaryValue}>
+                    {formatCurrency(summary.total_payments)}
+                  </div>
+                </div>
+                <div className={styles.summaryCard}>
+                  <div className={styles.summaryLabel}>Maximum Payment</div>
+                  <div className={styles.summaryValue}>{formatCurrency(summary.max_payment)}</div>
+                </div>
+                <div className={styles.summaryCard}>
+                  <div className={styles.summaryLabel}>Years with Payments</div>
+                  <div className={styles.summaryValue}>{summary.years_with_payments}</div>
+                </div>
+                <div className={styles.summaryCard}>
+                  <div className={styles.summaryLabel}>Final Fund Size</div>
+                  <div className={styles.summaryValue}>
+                    {formatCurrency(summary.final_fund_size)}
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className={styles.summaryCard}>
-              <div className={styles.summaryLabel}>Total Payments</div>
-              <div className={styles.summaryValue}>{formatCurrency(summary.total_payments)}</div>
-            </div>
-            <div className={styles.summaryCard}>
-              <div className={styles.summaryLabel}>Maximum Payment</div>
-              <div className={styles.summaryValue}>{formatCurrency(summary.max_payment)}</div>
-            </div>
-            <div className={styles.summaryCard}>
-              <div className={styles.summaryLabel}>Years with Payments</div>
-              <div className={styles.summaryValue}>{summary.years_with_payments}</div>
-            </div>
-            <div className={styles.summaryCard}>
-              <div className={styles.summaryLabel}>Final Fund Size</div>
-              <div className={styles.summaryValue}>{formatCurrency(summary.final_fund_size)}</div>
-            </div>
-          </div>
-        </div>
+          )}
+        </>
       )}
     </div>
   );

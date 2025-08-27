@@ -1,14 +1,17 @@
 import { CALCULATE_TEXTS } from '../utils/constants';
-import { CalculateIcon, LoadingSpinner, Button } from '@/ui';
-import { useConsultationModal } from '@/components/consultation-modal';
+import { CalculateIcon, LoadingSpinner } from '@/ui';
+
 import { MultipleInvestmentCharts } from '../investment-chart/MultipleInvestmentCharts';
 
 import { CalculateContentProps } from '../types';
 import styles from './CalculateContent.module.scss';
 
-export const CalculateContent = ({ isLoading, serverResponse, error }: CalculateContentProps) => {
-  const { openModal } = useConsultationModal();
-
+export const CalculateContent = ({
+  isLoading,
+  serverResponse,
+  error,
+  multiChart = true,
+}: CalculateContentProps) => {
   if (isLoading) {
     return <LoadingSpinner />;
   }
@@ -26,16 +29,11 @@ export const CalculateContent = ({ isLoading, serverResponse, error }: Calculate
 
   if (serverResponse && serverResponse.results.length > 0) {
     return (
-      <div className={styles.result}>
-        <MultipleInvestmentCharts data={serverResponse.results} summary={serverResponse.summary} />
-        <Button
-          variant='transparent'
-          text='Request expert advice'
-          height={90}
-          onClick={openModal}
-          className={styles.button}
-        />
-      </div>
+      <MultipleInvestmentCharts
+        data={serverResponse.results}
+        summary={serverResponse.summary}
+        multiChart={multiChart}
+      />
     );
   }
 

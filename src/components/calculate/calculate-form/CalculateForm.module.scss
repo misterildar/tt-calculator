@@ -1,5 +1,27 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 25px;
+}
+
+.horizontalInputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+
+  @media (max-width: 1260px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.button {
+  display: flex;
+  min-width: 48%;
+  margin: 0 auto;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
 }

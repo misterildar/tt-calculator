@@ -12,15 +12,3 @@
   @include text($size: 18px, $weight: 400);
   text-align: center;
 }
-
-.result {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-}
-
-.button {
-  width: 100%;
-}

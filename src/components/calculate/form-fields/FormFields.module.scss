@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  width: 100%;
 }
 
 .label {
@@ -19,8 +20,9 @@
 .input {
   @include text();
   text-align: start;
-  padding: 47px 24px 10px;
-  height: 91px;
+  padding: 45px 24px 10px;
+  height: 80px;
+  width: 100%;
   border: 2px solid $purple-gray;
   border-radius: 16px;
   transition: border-color 0.3s ease;
@@ -55,13 +57,19 @@
 .error {
   color: $red;
   position: absolute;
-  top: 100px;
+  top: 80px;
   left: 0;
   width: 100%;
 }
 
 .dropdownContainer {
   position: relative;
+}
+
+.arrow {
+  position: absolute;
+  top: 45%;
+  right: 25px;
 }
 
 .dropdownTrigger {
@@ -126,7 +134,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 5px;
 }
 
 .sliderLabel {
@@ -180,15 +188,15 @@
 .sliderLabels {
   display: flex;
   justify-content: space-between;
-  margin-top: 0.5rem;
+  margin-top: 5px;
   @include text($size: 18px, $weight: 400);
 }
 
 .disclaimer {
-  @include text($size: 18px, $weight: 500);
+  @include text($size: 20px, $weight: 500);
   color: $t-gray;
   background: $pink-light;
-  padding: 1rem;
+  padding: 11px 20px;
   border-radius: 8px;
   line-height: 1.4;
 

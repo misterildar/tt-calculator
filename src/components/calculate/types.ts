@@ -10,6 +10,8 @@ export interface CalculateFormData {
 
 export interface CalculateFormProps {
   onSubmit: (data: CalculateFormData) => void;
+  serverResponse: CalculateResponse | null;
+  multiChart?: boolean;
 }
 
 export interface FormFieldsProps {
@@ -52,6 +54,7 @@ export interface CalculateContentProps {
   isLoading: boolean;
   serverResponse: CalculateResponse | null;
   error?: string | null;
+  multiChart?: boolean;
 }
 
 export interface ServerResultItem {

@@ -50,7 +50,7 @@ export const Dropdown = <T extends FieldValues = FieldValues>({
                 >
                   {selectedOption?.label || placeholder}
                 </span>
-                <Arrow isOpen={isOpen} />
+                <Arrow isOpen={isOpen} className={styles.arrow} />
               </button>
 
               {isOpen && (

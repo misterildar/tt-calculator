@@ -38,7 +38,7 @@ AgeField.displayName = 'AgeField';
 
 export const GenderField = forwardRef<HTMLDivElement, Pick<FormFieldsProps, 'control' | 'errors'>>(
   ({ control, errors }, ref) => (
-    <div ref={ref}>
+    <div ref={ref} className={styles.field}>
       <Dropdown<CalculateFormData>
         control={control}
         errors={errors}
