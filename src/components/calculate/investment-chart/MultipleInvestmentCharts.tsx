@@ -1,10 +1,8 @@
-import { useMemo, useId, useState } from 'react';
+import { useMemo, useId, useState, useRef, useEffect } from 'react';
 import type { CalculateResponse } from '@/api';
 import styles from './InvestmentChart.module.scss';
 
 const CONFIG = {
-  width: 1500,
-  height: 600,
   pad: { t: 10, r: 40, b: 60, l: 150 },
   tickCount: 6,
   stroke: 2,
@@ -47,12 +45,45 @@ const Chart = ({
   formatter: (value: number) => string;
 }) => {
   const chartId = useId();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [dimensions, setDimensions] = useState({ width: 1550, height: 600 });
   const [tooltip, setTooltip] = useState<{
     visible: boolean;
     x: number;
     y: number;
     data: { year: number; value: number };
   } | null>(null);
+
+  // ResizeObserver для адаптивности
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const { width } = entry.contentRect;
+        const maxWidth = 1550;
+        const maxHeight = 600;
+
+        // Если ширина больше максимальной, используем максимальные размеры
+        if (width >= maxWidth) {
+          setDimensions({ width: maxWidth, height: maxHeight });
+        } else {
+          // Иначе пропорционально уменьшаем
+          const ratio = width / maxWidth;
+          const newWidth = Math.max(width, 400); // минимальная ширина
+          const newHeight = Math.max(maxHeight * ratio, 300); // пропорциональная высота
+          setDimensions({ width: newWidth, height: newHeight });
+        }
+      }
+    });
+
+    resizeObserver.observe(container);
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
 
   const chartData = useMemo(() => {
     if (!data.length) return null;
@@ -76,8 +107,8 @@ const Chart = ({
       return { yTicks: [], linePath: '', areaPath: '', scaleX: () => 0, scaleY: () => 0 };
 
     const { minYear, maxYear, minValue, maxValue } = chartData;
-    const chartWidth = CONFIG.width - CONFIG.pad.l - CONFIG.pad.r;
-    const chartHeight = CONFIG.height - CONFIG.pad.t - CONFIG.pad.b;
+    const chartWidth = dimensions.width - CONFIG.pad.l - CONFIG.pad.r;
+    const chartHeight = dimensions.height - CONFIG.pad.t - CONFIG.pad.b;
 
     const scaleX = (year: number): number =>
       ((year - minYear) / (maxYear - minYear || 1)) * chartWidth;
@@ -106,19 +137,23 @@ const Chart = ({
     const areaPath = `M ${topPath} L ${bottomPath} Z`;
 
     return { yTicks, linePath, areaPath, scaleX, scaleY };
-  }, [data, chartData, valueKey]);
+  }, [data, chartData, valueKey, dimensions]);
 
   if (!chartData) return null;
 
   const { years } = chartData;
-  const chartWidth = CONFIG.width - CONFIG.pad.l - CONFIG.pad.r;
-  const chartHeight = CONFIG.height - CONFIG.pad.t - CONFIG.pad.b;
+  const chartWidth = dimensions.width - CONFIG.pad.l - CONFIG.pad.r;
+  const chartHeight = dimensions.height - CONFIG.pad.t - CONFIG.pad.b;
 
   return (
     <div className={styles.chartSection}>
       <h3 className={styles.chartTitle}>{title}</h3>
-      <div className={styles.chartContainer}>
-        <svg width={CONFIG.width} height={CONFIG.height} style={{ maxWidth: '100%' }}>
+      <div className={styles.chartContainer} ref={containerRef}>
+        <svg
+          width={dimensions.width}
+          height={dimensions.height}
+          style={{ maxWidth: '100%', height: 'auto' }}
+        >
           <defs>
             <linearGradient id={`gradient-${chartId}`} x1='0' y1='0' x2='0' y2='1'>
               <stop offset='0%' stopColor={color} stopOpacity='0.3' />

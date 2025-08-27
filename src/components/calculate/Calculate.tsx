@@ -27,8 +27,8 @@ export const Calculate = ({ multiChart = true }: { multiChart?: boolean }) => {
             error={error}
             multiChart={multiChart}
           />
+          {!multiChart && <DisclaimerField />}
         </div>
-        {!multiChart && <DisclaimerField />}
       </div>
     </section>
   );

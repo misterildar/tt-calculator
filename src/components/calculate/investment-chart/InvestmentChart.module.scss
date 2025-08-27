@@ -1,6 +1,9 @@
 .chartContainer {
-  max-width: 1550px;
   width: 100%;
+  max-width: 1500px;
+  height: auto;
+  min-height: 300px;
+  position: relative;
 }
 .multipleChartsContainer {
   max-width: 1550px;
