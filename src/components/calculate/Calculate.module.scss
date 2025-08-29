@@ -3,6 +3,7 @@
   background-color: $blue;
   @include columnCenter;
   padding: 0 64px 64px;
+  height: 100%;
 }
 
 .separator {
@@ -18,9 +19,12 @@
 .container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   gap: 30px;
   margin: 30px auto 0;
+  min-height: 930px;
+  height: 100%;
 }
 
 .title {

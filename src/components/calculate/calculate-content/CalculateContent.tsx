@@ -6,14 +6,13 @@ import { MultipleInvestmentCharts } from '../investment-chart/MultipleInvestment
 import { CalculateContentProps } from '../types';
 import styles from './CalculateContent.module.scss';
 
-export const CalculateContent = ({
-  isLoading,
-  serverResponse,
-  error,
-  multiChart = true,
-}: CalculateContentProps) => {
+export const CalculateContent = ({ isLoading, serverResponse, error }: CalculateContentProps) => {
   if (isLoading) {
-    return <LoadingSpinner />;
+    return (
+      <div className={styles.initialState}>
+        <LoadingSpinner />
+      </div>
+    );
   }
 
   if (error) {
@@ -29,11 +28,7 @@ export const CalculateContent = ({
 
   if (serverResponse && serverResponse.results.length > 0) {
     return (
-      <MultipleInvestmentCharts
-        data={serverResponse.results}
-        summary={serverResponse.summary}
-        multiChart={multiChart}
-      />
+      <MultipleInvestmentCharts data={serverResponse.results} summary={serverResponse.summary} />
     );
   }
 

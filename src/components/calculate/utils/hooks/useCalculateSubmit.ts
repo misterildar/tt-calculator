@@ -5,14 +5,16 @@ import { CalculatorFormData } from '../../types';
 
 export const useCalculateSubmit = () => {
   const [isLoading, setIsLoading] = useState(false);
-
   const [error, setError] = useState<string | null>(null);
-
   const [serverResponse, setServerResponse] = useState<CalculateResponse | null>(null);
 
   const handleSubmit = async (data: CalculatorFormData) => {
     setIsLoading(true);
     setError(null);
+
+    const startTime = Date.now();
+    const minLoadingTime = 1000;
+
     try {
       const apiData: CalculateRequest = {
         age: Number(data.currentAge),
@@ -21,11 +23,26 @@ export const useCalculateSubmit = () => {
         investment_amount: data.initialInvestment,
         target_age: 120,
       };
+
       const response = await getCalculationData(apiData);
       setServerResponse(response);
+
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(0, minLoadingTime - elapsedTime);
+
+      if (remainingTime > 0) {
+        await new Promise((resolve) => setTimeout(resolve, remainingTime));
+      }
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Calculation failed';
       setError(errorMessage);
+
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(0, minLoadingTime - elapsedTime);
+
+      if (remainingTime > 0) {
+        await new Promise((resolve) => setTimeout(resolve, remainingTime));
+      }
     } finally {
       setIsLoading(false);
     }

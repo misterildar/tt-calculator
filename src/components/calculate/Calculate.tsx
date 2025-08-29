@@ -8,26 +8,17 @@ import { useCalculateSubmit } from './utils/hooks';
 import styles from './Calculate.module.scss';
 import { DisclaimerField } from './form-fields/FormFields';
 
-export const Calculate = ({ multiChart = true }: { multiChart?: boolean }) => {
+export const Calculate = () => {
   const { isLoading, error, serverResponse, handleSubmit } = useCalculateSubmit();
 
   return (
     <section id='calculate' className={styles.section}>
       <Title text='calculate' className={styles.title} />
       <div className={styles.separator}>
-        <CalculateForm
-          onSubmit={handleSubmit}
-          serverResponse={serverResponse}
-          multiChart={multiChart}
-        />
+        <CalculateForm onSubmit={handleSubmit} serverResponse={serverResponse} />
         <div className={styles.container}>
-          <CalculateContent
-            isLoading={isLoading}
-            serverResponse={serverResponse}
-            error={error}
-            multiChart={multiChart}
-          />
-          {!multiChart && <DisclaimerField />}
+          <CalculateContent isLoading={isLoading} serverResponse={serverResponse} error={error} />
+          <DisclaimerField />
         </div>
       </div>
     </section>

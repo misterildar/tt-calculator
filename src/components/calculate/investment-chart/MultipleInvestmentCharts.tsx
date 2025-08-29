@@ -1,5 +1,6 @@
 import { useMemo, useId, useState, useRef, useEffect } from 'react';
 import type { CalculateResponse } from '@/api';
+import { SummaryItem } from './SummaryItem';
 import styles from './InvestmentChart.module.scss';
 
 const CONFIG = {
@@ -28,7 +29,6 @@ const adjustValue = (value: number): number => {
 interface MultipleInvestmentChartsProps {
   data: CalculateResponse['results'];
   summary?: CalculateResponse['summary'];
-  multiChart?: boolean;
 }
 
 const Chart = ({
@@ -54,7 +54,6 @@ const Chart = ({
     data: { year: number; value: number };
   } | null>(null);
 
-  // ResizeObserver для адаптивности
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -65,14 +64,12 @@ const Chart = ({
         const maxWidth = 1550;
         const maxHeight = 600;
 
-        // Если ширина больше максимальной, используем максимальные размеры
         if (width >= maxWidth) {
           setDimensions({ width: maxWidth, height: maxHeight });
         } else {
-          // Иначе пропорционально уменьшаем
           const ratio = width / maxWidth;
-          const newWidth = Math.max(width, 400); // минимальная ширина
-          const newHeight = Math.max(maxHeight * ratio, 300); // пропорциональная высота
+          const newWidth = Math.max(width, 400);
+          const newHeight = Math.max(maxHeight * ratio, 300);
           setDimensions({ width: newWidth, height: newHeight });
         }
       }
@@ -297,68 +294,38 @@ const Chart = ({
   );
 };
 
-export const MultipleInvestmentCharts = ({
-  data,
-  summary,
-  multiChart,
-}: MultipleInvestmentChartsProps) => {
+export const MultipleInvestmentCharts = ({ data, summary }: MultipleInvestmentChartsProps) => {
   if (!data.length) return null;
 
   return (
     <div className={styles.multipleChartsContainer}>
-      <Chart
+      {/* <Chart
         data={data}
         valueKey='fund_size'
         title='Investment Fund Size'
         color={COLORS.primary}
         formatter={formatCurrency}
-      />
+      /> */}
 
-      {multiChart && (
-        <>
-          <Chart
-            data={data}
-            valueKey='cumulative_payment'
-            title='Your Cumulative Payments'
-            color={COLORS.secondary}
-            formatter={formatCurrency}
-          />
+      <>
+        <Chart
+          data={data}
+          valueKey='cumulative_payment'
+          title='Your Cumulative Payments'
+          color={COLORS.primary}
+          formatter={formatCurrency}
+        />
 
-          {summary && (
-            <div className={styles.summarySection}>
-              <h3 className={styles.chartTitle}>Summary Results</h3>
-              <div className={styles.summaryGrid}>
-                <div className={styles.summaryCard}>
-                  <div className={styles.summaryLabel}>Total Investment</div>
-                  <div className={styles.summaryValue}>
-                    {formatCurrency(summary.total_investment)}
-                  </div>
-                </div>
-                <div className={styles.summaryCard}>
-                  <div className={styles.summaryLabel}>Total Payments</div>
-                  <div className={styles.summaryValue}>
-                    {formatCurrency(summary.total_payments)}
-                  </div>
-                </div>
-                <div className={styles.summaryCard}>
-                  <div className={styles.summaryLabel}>Maximum Payment</div>
-                  <div className={styles.summaryValue}>{formatCurrency(summary.max_payment)}</div>
-                </div>
-                <div className={styles.summaryCard}>
-                  <div className={styles.summaryLabel}>Years with Payments</div>
-                  <div className={styles.summaryValue}>{summary.years_with_payments}</div>
-                </div>
-                <div className={styles.summaryCard}>
-                  <div className={styles.summaryLabel}>Final Fund Size</div>
-                  <div className={styles.summaryValue}>
-                    {formatCurrency(summary.final_fund_size)}
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-        </>
-      )}
+        {summary && (
+          <div className={styles.summarySection}>
+            <SummaryItem
+              title='Total Payments'
+              description={formatCurrency(summary.total_payments)}
+            />
+            <SummaryItem title='Years with Payments' description={summary.years_with_payments} />
+          </div>
+        )}
+      </>
     </div>
   );
 };

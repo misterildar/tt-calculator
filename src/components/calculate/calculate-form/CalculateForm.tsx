@@ -4,7 +4,6 @@ import {
   AgeField,
   GenderField,
   InvestmentField,
-  DisclaimerField,
   ContributionYearsField,
 } from '../form-fields';
 import { Button } from '@/ui';
@@ -16,7 +15,7 @@ import { useConsultationModal } from '@/components/consultation-modal';
 import { CalculateFormProps, CalculateFormData } from '../types';
 import styles from './CalculateForm.module.scss';
 
-export const CalculateForm = ({ onSubmit, serverResponse, multiChart }: CalculateFormProps) => {
+export const CalculateForm = ({ onSubmit, serverResponse }: CalculateFormProps) => {
   const {
     watch,
     trigger,
@@ -53,7 +52,6 @@ export const CalculateForm = ({ onSubmit, serverResponse, multiChart }: Calculat
         <InvestmentField control={control} errors={errors} ref={investmentFieldRef} />
       </div>
       <ContributionYearsField control={control} watchedValues={watchedValues} errors={errors} />
-      {multiChart && <DisclaimerField />}
       <div className={resResult ? styles.buttons : ''}>
         <Button
           type='submit'

@@ -15,9 +15,6 @@ export default function HomePage() {
     <div className={styles.main} id='top'>
       <Poster />
       <HowItWorks />
-      <h1 style={{ fontSize: '60px', marginBottom: '10px' }}>Вариант с одним графиком</h1>
-      <Calculate multiChart={false} />
-      <div style={{ height: '100px' }}></div>
       <Calculate />
       <KeyAdvantages />
       <WhyChooseTT />
