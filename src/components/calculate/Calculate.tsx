@@ -15,7 +15,10 @@ export const Calculate = () => {
     <section id='calculate' className={styles.section}>
       <Title text='calculate' className={styles.title} />
       <div className={styles.separator}>
-        <CalculateForm onSubmit={handleSubmit} serverResponse={serverResponse} />
+        <CalculateForm
+          onSubmit={handleSubmit}
+          serverResponse={!isLoading ? serverResponse : null}
+        />
         <div className={styles.container}>
           <CalculateContent isLoading={isLoading} serverResponse={serverResponse} error={error} />
           <DisclaimerField />
