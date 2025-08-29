@@ -81,27 +81,19 @@
   }
 }
 
-// Hover эффект для точек
-.chartContainer svg circle {
+// Hover эффект для точек графика
+.chartContainer svg circle.chartPoint {
   transition:
     r 0.2s ease,
-    stroke-width 0.2s ease;
+    stroke-width 0.2s ease,
+    fill 0.2s ease;
+  cursor: pointer;
 
   &:hover {
-    r: 5px !important;
-    stroke-width: 2px !important;
+    r: 7px;
+    stroke-width: 2px;
+    fill: $blue;
   }
-}
-// Hover эффект для точек графика
-.chartPoint {
-  transition:
-    r 0.2s ease,
-    stroke-width 0.2s ease;
-}
-
-.chartContainer svg g:hover .chartPoint {
-  r: 6px !important;
-  stroke-width: 2px !important;
 }
 
 .summarySection {
