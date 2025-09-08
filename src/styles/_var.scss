@@ -71,7 +71,7 @@ $red: #e74c3c;
 }
 
 @mixin link-style {
-  @include text($size: 16px, $weight: 400, $color: $blue);
+  @include text($size: var(--input-font-size, 16px), $weight: 400, $color: $blue);
 }
 
 .font-nunito {

@@ -52,11 +52,13 @@ export const VerificationStep = ({ code, setCode, onNext, onBack }: Verification
             variant='secondary'
             text={MODAL_TEXTS.VERIFICATION.backButton}
             onClick={onBack}
+            className={styles.modalButton}
           />
           <Button
             type='submit'
             variant={isValid ? 'primary' : 'calculate'}
             text={MODAL_TEXTS.VERIFICATION.button}
+            className={styles.modalButton}
           />
         </div>
       </form>

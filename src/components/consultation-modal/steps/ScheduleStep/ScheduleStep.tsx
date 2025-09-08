@@ -93,8 +93,14 @@ export const ScheduleStep = ({
             variant='secondary'
             text={MODAL_TEXTS.SCHEDULE.backButton}
             onClick={onBack}
+            className={styles.modalButton}
           />
-          <Button type='submit' variant='primary' text={MODAL_TEXTS.SCHEDULE.button} />
+          <Button
+            type='submit'
+            variant='primary'
+            text={MODAL_TEXTS.SCHEDULE.button}
+            className={styles.modalButton}
+          />
         </div>
       </form>
     </div>

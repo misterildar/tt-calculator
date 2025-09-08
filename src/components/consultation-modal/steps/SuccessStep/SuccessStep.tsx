@@ -23,7 +23,7 @@ export const SuccessStep = ({ onClose }: SuccessStepProps) => {
         onClick={onClose}
         variant='primary'
         text={MODAL_TEXTS.SUCCESS.button}
-        className={styles.button}
+        className={styles.modalButton}
       />
     </div>
   );

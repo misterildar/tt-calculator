@@ -52,7 +52,7 @@ export const FormStep = ({ formData, setFormData, onNext }: FormStepProps) => {
       <Button
         type='submit'
         text={FORM_TEXTS.button}
-        className={styles.button}
+        className={`${styles.button} ${styles.modalButton}`}
         variant={isValid ? 'primary' : 'calculate'}
       />
 

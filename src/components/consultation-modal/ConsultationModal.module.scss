@@ -6,7 +6,7 @@
 }
 
 .stepContainer {
-  @include flex-column(16px);
+  @include flex-column(var(--step-container-gap, 16px));
 }
 
 .stepTitle {

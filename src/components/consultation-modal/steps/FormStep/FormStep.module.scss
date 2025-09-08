@@ -1,5 +1,5 @@
 .formStep {
-  @include flex-column(20px);
+  @include flex-column(var(--form-step-gap, 20px));
 }
 
 .link {
@@ -9,5 +9,11 @@
 .button {
   display: flex;
   align-self: center;
-  margin-top: 20px;
+  margin-top: var(--button-margin-top, 20px);
+}
+
+.modalButton {
+  font-size: var(--modal-button-font-size, 32px);
+  height: var(--modal-button-height, 78px);
+  padding: var(--modal-button-padding-vertical, 16px) var(--modal-button-padding-horizontal, 36px);
 }

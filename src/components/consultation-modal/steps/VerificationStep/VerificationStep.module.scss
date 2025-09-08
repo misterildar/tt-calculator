@@ -14,3 +14,9 @@
   text-decoration: underline;
   @include link-style;
 }
+
+.modalButton {
+  font-size: var(--modal-button-font-size, 32px);
+  height: var(--modal-button-height, 78px);
+  padding: var(--modal-button-padding-vertical, 16px) var(--modal-button-padding-horizontal, 36px);
+}
