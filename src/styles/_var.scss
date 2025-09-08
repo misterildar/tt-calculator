@@ -30,7 +30,7 @@ $red: #e74c3c;
 }
 
 @mixin inputText($color: $text-secondary) {
-  @include text($size: 20px, $weight: 400, $color: $color);
+  @include text($size: var(--input-font-size, 20px), $weight: 400, $color: $color);
 }
 
 @mixin columnCenter {

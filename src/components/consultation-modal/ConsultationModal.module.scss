@@ -10,19 +10,19 @@
 }
 
 .stepTitle {
-  @include text($weight: 400);
+  @include text($size: var(--step-title-font-size, 24px), $weight: 400);
 }
 
 .stepIndicator {
   display: flex;
   gap: 10px;
-  margin-bottom: 36px;
+  margin-bottom: var(--step-indicator-margin-bottom, 36px);
 }
 
 .step {
-  @include text($size: 16px, $color: $light-gray);
-  width: 42px;
-  height: 42px;
+  @include text($size: var(--step-indicator-font-size, 16px), $color: $light-gray);
+  width: var(--step-indicator-size, 42px);
+  height: var(--step-indicator-size, 42px);
   border-radius: 50%;
   display: flex;
   align-items: center;

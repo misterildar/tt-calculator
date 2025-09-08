@@ -5,6 +5,8 @@
   max-width: 500px;
   width: 100%;
   overflow: visible;
+  max-height: 90vh;
+  overflow-y: auto;
 
   &::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
@@ -13,7 +15,7 @@
 }
 
 .modalContent {
-  padding: 64px 32px;
+  padding: var(--modal-padding-vertical, 64px) var(--modal-padding-horizontal, 32px);
   background: $white;
   border-radius: 16px;
   position: relative;
