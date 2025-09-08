@@ -6,6 +6,8 @@ import { CloseIcon } from '../close-icon';
 
 import styles from './Modal.module.scss';
 
+const MODAL_HEIGHT_RATIO = 0.95; // 95% от высоты экрана
+
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -32,56 +34,80 @@ const Modal = ({
     const dialog = dialogRef.current;
     if (!dialog) return;
     if (isOpen) {
+      const commonValues = {
+        '--input-padding-horizontal': '16px',
+        '--modal-padding-horizontal': '32px',
+        '--step-indicator-font-size': '16px',
+      };
+
+      const themes = {
+        compact: {
+          ...commonValues,
+          '--input-font-size': '14px',
+          '--input-padding-vertical': '4px',
+          '--input-group-gap': '6px',
+          '--form-step-gap': '8px',
+          '--step-container-gap': '8px',
+          '--button-margin-top': '12px',
+          '--modal-button-font-size': '24px',
+          '--modal-button-height': '48px',
+          '--modal-button-padding-vertical': '4px',
+          '--modal-button-padding-horizontal': '24px',
+          '--modal-padding-vertical': '32px',
+          '--step-title-font-size': '18px',
+          '--step-indicator-size': '36px',
+          '--step-indicator-margin-bottom': '16px',
+        },
+        normal: {
+          ...commonValues,
+          '--input-font-size': '20px',
+          '--input-padding-vertical': '12px',
+          '--input-group-gap': '8px',
+          '--form-step-gap': '20px',
+          '--step-container-gap': '16px',
+          '--button-margin-top': '20px',
+          '--modal-button-font-size': '32px',
+          '--modal-button-height': '78px',
+          '--modal-button-padding-vertical': '16px',
+          '--modal-button-padding-horizontal': '36px',
+          '--modal-padding-vertical': '64px',
+          '--step-title-font-size': '24px',
+          '--step-indicator-size': '42px',
+          '--step-indicator-margin-bottom': '36px',
+        },
+      };
+
+      const applyTheme = (theme: typeof themes.compact) => {
+        Object.entries(theme).forEach(([property, value]) => {
+          dialog.style.setProperty(property, value);
+        });
+      };
+
+      const determineTheme = () => {
+        applyTheme(themes.normal);
+        dialog.showModal();
+        const modalHeight = dialog.scrollHeight;
+        const availableHeight = window.innerHeight * MODAL_HEIGHT_RATIO;
+        dialog.close();
+        return modalHeight > availableHeight ? themes.compact : themes.normal;
+      };
+
+      const selectedTheme = determineTheme();
+
+      applyTheme(selectedTheme);
+
       dialog.showModal();
 
-      // Проверяем, помещается ли модальное окно, и уменьшаем размеры если нужно
       const adjustSizes = () => {
         const modalHeight = dialog.scrollHeight;
-        const availableHeight = window.innerHeight * 0.95; // 90% от высоты экрана
-
+        const availableHeight = window.innerHeight * MODAL_HEIGHT_RATIO;
         if (modalHeight > availableHeight) {
-          // Если не помещается, уменьшаем все размеры
-          dialog.style.setProperty('--input-font-size', '14px');
-          dialog.style.setProperty('--input-padding-vertical', '2px');
-          dialog.style.setProperty('--input-padding-horizontal', '12px');
-          dialog.style.setProperty('--input-group-gap', '5px');
-          dialog.style.setProperty('--form-step-gap', '5px');
-          dialog.style.setProperty('--step-container-gap', '5px');
-          dialog.style.setProperty('--button-margin-top', '10px');
-          dialog.style.setProperty('--modal-button-font-size', '24px');
-          dialog.style.setProperty('--modal-button-height', '48px');
-          dialog.style.setProperty('--modal-button-padding-vertical', '2px');
-          dialog.style.setProperty('--modal-button-padding-horizontal', '24px');
-          dialog.style.setProperty('--modal-padding-vertical', '32px');
-          dialog.style.setProperty('--modal-padding-horizontal', '16px');
-          dialog.style.setProperty('--step-title-font-size', '18px');
-          dialog.style.setProperty('--step-indicator-font-size', '14px');
-          dialog.style.setProperty('--step-indicator-size', '36px');
-          dialog.style.setProperty('--step-indicator-margin-bottom', '14px');
+          applyTheme(themes.compact);
         } else {
-          // Если помещается, используем обычные размеры
-          dialog.style.setProperty('--input-font-size', '20px');
-          dialog.style.setProperty('--input-padding-vertical', '12px');
-          dialog.style.setProperty('--input-padding-horizontal', '16px');
-          dialog.style.setProperty('--input-group-gap', '8px');
-          dialog.style.setProperty('--form-step-gap', '20px');
-          dialog.style.setProperty('--step-container-gap', '16px');
-          dialog.style.setProperty('--button-margin-top', '20px');
-          dialog.style.setProperty('--modal-button-font-size', '32px');
-          dialog.style.setProperty('--modal-button-height', '78px');
-          dialog.style.setProperty('--modal-button-padding-vertical', '16px');
-          dialog.style.setProperty('--modal-button-padding-horizontal', '36px');
-          dialog.style.setProperty('--modal-padding-vertical', '64px');
-          dialog.style.setProperty('--modal-padding-horizontal', '32px');
-          dialog.style.setProperty('--step-title-font-size', '24px');
-          dialog.style.setProperty('--step-indicator-font-size', '16px');
-          dialog.style.setProperty('--step-indicator-size', '42px');
-          dialog.style.setProperty('--step-indicator-margin-bottom', '36px');
+          applyTheme(themes.normal);
         }
       };
 
-      // Проверяем сразу и при изменении размера окна
-      setTimeout(adjustSizes, 100); // Небольшая задержка для рендера
       window.addEventListener('resize', adjustSizes);
 
       return () => {

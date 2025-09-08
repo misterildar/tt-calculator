@@ -18,6 +18,7 @@ export const Calculate = () => {
         <CalculateForm
           onSubmit={handleSubmit}
           serverResponse={!isLoading ? serverResponse : null}
+          isLoading={isLoading}
         />
         <div className={styles.container}>
           <CalculateContent isLoading={isLoading} serverResponse={serverResponse} error={error} />

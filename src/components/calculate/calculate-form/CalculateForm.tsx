@@ -1,11 +1,6 @@
 import { useForm } from 'react-hook-form';
 
-import {
-  AgeField,
-  GenderField,
-  InvestmentField,
-  ContributionYearsField,
-} from '../form-fields';
+import { AgeField, GenderField, InvestmentField, ContributionYearsField } from '../form-fields';
 import { Button } from '@/ui';
 import { isSubmitDisabled } from '../utils/validation';
 import { useFocusFirstInvalidField } from '../utils/hooks';
@@ -15,7 +10,7 @@ import { useConsultationModal } from '@/components/consultation-modal';
 import { CalculateFormProps, CalculateFormData } from '../types';
 import styles from './CalculateForm.module.scss';
 
-export const CalculateForm = ({ onSubmit, serverResponse }: CalculateFormProps) => {
+export const CalculateForm = ({ onSubmit, serverResponse, isLoading }: CalculateFormProps) => {
   const {
     watch,
     trigger,
@@ -59,6 +54,7 @@ export const CalculateForm = ({ onSubmit, serverResponse }: CalculateFormProps) 
           onClick={handleButtonClick}
           text={CALCULATE_TEXTS.BUTTON.submit}
           className={resResult ? '' : styles.button}
+          disabled={isLoading}
         />
         {resResult && (
           <Button variant='transparent' text='Request expert advice' onClick={openModal} />

@@ -11,6 +11,7 @@ export interface CalculateFormData {
 export interface CalculateFormProps {
   onSubmit: (data: CalculateFormData) => void;
   serverResponse: CalculateResponse | null;
+  isLoading: boolean;
 }
 
 export interface FormFieldsProps {
